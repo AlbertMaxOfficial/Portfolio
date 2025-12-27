@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Service Packages</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 20px;
+        --max-width: 1400px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --web-dev: #4a6fff;
+        --web-design: #ff6b9d;
+        --ads-making: #00d09c;
+        --content-creation: #ffb74d;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      /* Filter Section */
+      .filter-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 60px;
+      }
+
+      .filter-btn {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--accent);
+        background: white;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .filter-btn[data-type="web-development"]:hover,
+      .filter-btn[data-type="web-development"].active {
+        background: var(--web-dev);
+        border-color: var(--web-dev);
+      }
+
+      .filter-btn[data-type="web-designing"]:hover,
+      .filter-btn[data-type="web-designing"].active {
+        background: var(--web-design);
+        border-color: var(--web-design);
+      }
+
+      .filter-btn[data-type="ads-making"]:hover,
+      .filter-btn[data-type="ads-making"].active {
+        background: var(--ads-making);
+        border-color: var(--ads-making);
+      }
+
+      .filter-btn[data-type="content-creation"]:hover,
+      .filter-btn[data-type="content-creation"].active {
+        background: var(--content-creation);
+        border-color: var(--content-creation);
+      }
+
+      /* Packages Grid */
+      .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 32px;
+        margin-bottom: 80px;
+      }
+
+      .package-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--accent);
+        position: relative;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      }
+
+      .package-header {
+        padding: 36px 36px 28px;
+        position: relative;
+      }
+
+      .package-header:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        transition: height 0.3s ease;
+      }
+
+      .package-card[data-type="web-development"] .package-header:before {
+        background: var(--web-dev);
+        height: 6px;
+      }
+
+      .package-card[data-type="web-designing"] .package-header:before {
+        background: var(--web-design);
+        height: 6px;
+      }
+
+      .package-card[data-type="ads-making"] .package-header:before {
+        background: var(--ads-making);
+        height: 6px;
+      }
+
+      .package-card[data-type="content-creation"] .package-header:before {
+        background: var(--content-creation);
+        height: 6px;
+      }
+
+      .package-type {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .package-card[data-type="web-development"] .package-type {
+        background: rgba(74, 111, 255, 0.1);
+        color: var(--web-dev);
+      }
+
+      .package-card[data-type="web-designing"] .package-type {
+        background: rgba(255, 107, 157, 0.1);
+        color: var(--web-design);
+      }
+
+      .package-card[data-type="ads-making"] .package-type {
+        background: rgba(0, 208, 156, 0.1);
+        color: var(--ads-making);
+      }
+
+      .package-card[data-type="content-creation"] .package-type {
+        background: rgba(255, 183, 77, 0.1);
+        color: var(--content-creation);
+      }
+
+      .package-title {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        color: var(--primary);
+      }
+
+      .package-price {
+        font-size: 42px;
+        font-weight: 900;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      .package-price span {
+        font-size: 18px;
+        color: var(--secondary);
+        font-weight: 500;
+      }
+
+      .package-description {
+        color: var(--secondary);
+        margin-bottom: 10px;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .package-features {
+        padding: 0 36px 36px;
+      }
+
+      .features-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .features-list {
+        list-style: none;
+      }
+
+      .features-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 14px;
+        font-size: 15px;
+        color: var(--secondary);
+      }
+
+      .features-list li i {
+        color: var(--ads-making);
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      .package-cta {
+        padding: 0 36px 36px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 18px;
+        border-radius: 50px;
+        background: var(--gradient);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn:hover:before {
+        left: 100%;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        grid-column: 1 / -1;
+      }
+
+      .empty-state h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .empty-state p {
+        color: var(--secondary);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .reset-filters {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .reset-filters:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Admin Note (Hidden from users) */
+      .admin-note {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 60px;
+        border: 2px dashed #dee2e6;
+        display: none; /* Hidden from users */
+      }
+
+      .admin-note h3 {
+        color: #495057;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .admin-note code {
+        background: #e9ecef;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+        margin-top: 60px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+      /* Add these currency styles */
+      .currency-indicator {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        font-style: italic;
+      }
+
+      #currencyToggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background: var(--gradient);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      #currencyToggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="#" class="logo">
+          <span>Albert Max</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Service Packages</h1>
+        <p>
+          Choose the perfect package for your digital needs. All packages are
+          designed to deliver exceptional results and can be customized to fit
+          your specific requirements.
+        </p>
+
+        <div class="filter-section">
+          <button class="filter-btn active" data-type="all">
+            All Packages
+          </button>
+          <button class="filter-btn" data-type="web-development">
+            Web Development
+          </button>
+          <button class="filter-btn" data-type="web-designing">
+            Web Designing
+          </button>
+          <button class="filter-btn" data-type="digital-marketting">Digital Marketting</button>
+          <button class="filter-btn" data-type="content-creation">
+            Content Creation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+      <div class="container">
+        <div class="packages-grid" id="packagesContainer">
+          <!-- Packages will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="policies.html">Policies</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. Premium Digital Growth & Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Hidden Admin Section (For developer use only) -->
+    <div class="admin-note" id="adminNote">
+      <div class="container">
+        <h3><i class="fas fa-code"></i> Developer Note</h3>
+        <p>
+          To add new packages, edit the <code>packages</code> array in the
+          JavaScript. The JSON data is now hidden from users.
+        </p>
+      </div>
+    </div>
+    <!-- ADS PACKAGES REQUIREMENTS:-
+  Number of ad platforms (1 / 2 / 3 platforms)
+  Number of ad campaigns
+  Number of ad sets or ad groups
+  Number of ads (image / video / carousel)
+  Ad copywriting included (headlines & descriptions)
+  Ad creative design included (images / basic videos)
+  Audience targeting setup
+  Location & language targeting
+  Budget setup & bidding strategy
+  Lead or conversion campaign setup
+  Pixel / conversion tracking setup
+  Google Analytics integration
+  Event tracking (leads, purchases, calls)
+  Landing page included or landing page optimization
+  Lead form setup
+  Call or WhatsApp click ads setup
+  Retargeting ads included (Yes / No)
+  Lookalike audience setup (Yes / No)
+  Free optimization period (first 7 days / first month)
+  Number of ad revisions
+  A/B testing included (Yes / No)
+  Ad account setup & verification
+  Ad rejection & policy issue handling
+  Reporting (weekly / monthly)
+  Performance summary report
+  Ad management duration (15 days / 30 days / 3 months)
+  Ongoing ad monitoring included
+  Free consultation / strategy call
+  Free ad account audit (if existing)
+  Ad spend included or excluded
+  Platform fees excluded
+  -->
+
+    <!-- Web Development PACKAGES REQUIREMENTS:-
+  Number of pages: e.g., 3 / 5 / 10 pages
+  Responsive design: Mobile, tablet, desktop friendly
+  Custom UI/UX design: Included
+  Domain setup: Included / guided setup
+  Web hosting setup: Included / guided setup
+  Content integration: Text, images, videos included
+  Basic SEO setup: Meta tags, title tags, Google indexing
+  Landing page / homepage design: Included
+  Contact form / inquiry form: Included
+  Blog or news section: Optional
+  Gallery / portfolio section: Optional
+  E-commerce setup: Optional (products, cart, checkout)
+  Payment gateway integration: Optional
+  Basic security setup: SSL certificate setup / HTTPS
+  Analytics setup: Google Analytics integration
+  Performance optimization: Speed & loading time optimization
+  Browser compatibility: Chrome, Firefox, Safari, Edge
+  Number of revisions: e.g., 2–3 revisions
+  Free support period: e.g., 7 days / 1 month
+  Backup setup: Included
+  Ongoing maintenance / updates: Optional / monthly
+  Training / documentation: Optional for content updates
+  Free consultation / strategy call: Included
+  Domain & hosting renewal guidance: Optional
+  -->
+
+    <!-- Web Designing PACKAGES REQUIREMENTS:-
+  Number of pages designed: e.g., 3 / 5 / 10 pages
+  Custom UI/UX design: Included
+  Responsive design: Mobile, tablet, desktop friendly
+  Landing page / homepage design: Included
+  Design revisions: e.g., 2–3 revisions
+  Graphics & visual elements: Icons, banners, buttons, images
+  Banner / slider design: Included
+  Color scheme & typography: Custom branding included
+  Wireframe / mockup design: Included
+  Forms design: Contact form, inquiry form, or subscription form
+  Blog / portfolio page design: Optional
+  E-commerce page design: Product pages, cart, checkout (optional)
+  Call-to-action (CTA) design: Included
+  Interactive elements: Buttons, hover effects, animations (optional)
+  Landing page optimization for design: Included
+  Browser compatibility design check: Chrome, Firefox, Safari, Edge
+  Basic SEO-friendly design setup: Title, meta placeholders
+  Free consultation / strategy call: Included
+  Delivery format: Figma, Adobe XD, PSD, or ready-to-use HTML mockup
+  Ongoing support / minor tweaks: Optional, e.g., 7 days / 1 month
+  Final handoff & documentation: Included
+  -->
+    <!-- SEO Packages Requirements:-
+  Number of keywords optimized: e.g., 10 / 20 / 50 keywords
+  On-page SEO: Title tags, meta descriptions, header tags, image alt tags
+  Content optimization: Existing pages optimized for SEO
+  Technical SEO: URL structure, sitemap, robots.txt, site speed check
+  Mobile-friendly optimization: Responsive check for SEO
+  Google Analytics setup: Included
+  Google Search Console setup: Included
+  Keyword research & analysis: Included
+  Competitor analysis: Included
+  Backlink strategy: Basic / Advanced depending on package
+  Local SEO setup: Google My Business, map listing (optional)
+  Blog optimization: SEO-friendly blog posts (optional)
+  Internal linking optimization: Included
+  Broken link check & fixing: Included
+  SEO reporting: Weekly / Monthly report
+  Performance tracking: Keyword ranking, traffic, conversions
+  SEO audit: Included (initial site analysis)
+  Number of pages optimized: e.g., 5 / 10 / 20 pages
+  Content recommendations: For better ranking
+  Free consultation / strategy call: Included
+  Ongoing monitoring: Included (duration based on package, e.g., 1 / 3 months)
+  Revisions / adjustments: Included during optimization period
+    -->
+    <!-- Logo Designing Packages Requirements:-
+  Number of logo concepts: e.g., 2 / 3 / 5 concepts
+  Initial design mockups: Included
+  Custom vector logo design: AI / EPS / SVG format
+  High-resolution files: PNG, JPG, PDF
+  Color variations: Full color, black & white, grayscale
+  Revisions: e.g., 2 / 3 / 5 revisions
+  Brand style guide: Optional / basic (colors, typography, usage)
+  Icon / symbol design: Included
+  Typography selection: Custom fonts included
+  Transparent background version: Included
+  Social media profile logo version: Included (optional square/circle formats)
+  Favicon / website icon: Included
+  Free consultation / design discussion: Included
+  Delivery format: Source files + final formats ready for web & print
+  Ownership rights: Full copyright transfer included
+  Free minor tweaks post-delivery: e.g., 7 days
+    -->
+    <!-- Content Creation Package Requirements:-
+  Number of posts/articles: e.g., 5 / 10 / 20 per month
+  Content type: Blog posts, social media posts, website content, newsletters
+  Word count per piece: e.g., 300 / 500 / 1000+ words
+  Custom graphics/images: Included (stock or simple custom designs)
+  Video content: Short-form videos, reels, or animations (optional)
+  Content writing: SEO-friendly, original, and engaging
+  Hashtag research & caption writing: Included for social media
+  Content calendar creation: Monthly planning included
+  Revisions per content piece: e.g., 1–2 revisions
+  Topic research & ideation: Included
+  Call-to-action (CTA) integration: Included
+  Proofreading & editing: Included
+  Platform-specific optimization: Instagram, Facebook, LinkedIn, website
+  Content scheduling: Optional (posting directly via tools)
+  Analytics tracking: Optional (engagement, reach, performance)
+  Free consultation / strategy call: Included
+  Content delivery format: Google Docs, PDF, Canva, or ready-to-post formats
+  Copyright & ownership: Full rights transfer
+    -->
+    <!-- Digital Marketting Package Requirements:-
+  Number of platforms managed: e.g., 1 / 2 / 3 platforms (Facebook, Instagram, Google, LinkedIn)
+  Social media posting: Number of posts per week/month
+  Paid advertising campaigns: Number of campaigns / ad sets / ads
+  SEO optimization: On-page SEO for website pages, keyword optimization
+  Content creation: Graphics, images, banners, captions, short-form videos
+  Email marketing: Campaign setup, newsletters, automated sequences
+  Lead generation: Lead form setup, landing page integration, CTA optimization
+  Audience targeting: Custom & lookalike audience setup
+  Retargeting campaigns: Yes / No
+  Ad copywriting: Headlines & descriptions included
+  Budget setup & bid management: Included
+  Pixel / conversion tracking setup: Included
+  Google Analytics integration: Included
+  Performance tracking & reporting: Weekly / Monthly report
+  A/B testing: Included / optional
+  Consultation / strategy call: Included
+  Number of ad revisions / optimization rounds: e.g., 2 revisions
+  Campaign duration / management period: 15 days / 30 days / 3 months
+  Ongoing monitoring: Included
+  Platform fees / ad spend: Excluded
+  Free audit / initial campaign analysis: Included
+    -->
+    <script>
+      // Packages data - Only visible in JavaScript, not shown to users
+      const packages = [
+        // WEB DEVELOPMENT PACKAGES (1-3)
+        {
+          id: 1,
+          name: "Starter Website",
+          type: "web-development",
+          price: 110,
+          period: "one-time",
+          description:
+            "Perfect for small businesses needing a simple online presence.",
+          features: [
+            "1-3 Custom Designed Pages",
+            "Mobile Responsive Design",
+            "1 Animation",
+            "Basic SEO Setup",
+            "DataBase Management",
+            "First 3 Months Maintenance",
+            "Basic security setup: SSL certificate setup / HTTPS",
+          ],
+        },
+        {
+          id: 2,
+          name: "Best For All",
+          type: "web-development",
+          price: 200,
+          period: "one-time",
+          description:
+            "Perfect for medium level businesses needing a normal and emerging online presence.",
+          features: [
+            "4-8 Custom Designed Pages",
+            "Mobile Responsive Design",
+            "1-2 Animations",
+            "DataBase Management",
+            "First 5 Months Maintenance",
+            "Custom UI/UX design",
+            "Content integration",
+            "Basic SEO setup",
+            "E-commerce setup (Optional)",
+            "Payment gateway integration: Optional",
+            "Basic security setup: SSL certificate setup / HTTPS",
+          ],
+        },
+        {
+          id: 3,
+          name: "Premium Level",
+          type: "web-development",
+          price: 400,
+          period: "one-time",
+          description:
+            "Perfect for high level businesses needing a high level inspiring online presence.",
+          features: [
+            "Custom Designed Pages(According To Need)",
+            "Mobile Responsive Design",
+            "1-4 Animations",
+            "DataBase Management",
+            "First 8 Months Maintenance",
+            "Custom UI/UX design",
+            "Content integration",
+            "Medium Level SEO setup",
+            "E-commerce setup (Optional)",
+            "Payment gateway integration (Optional)",
+            "Basic security setup: SSL certificate setup / HTTPS",
+            "New Features Needed 1-4",
+            "Project Update News",
+          ],
+        },
+        {
+          id: 4,
+          name: "Ultra Development",
+          type: "web-development",
+          price: 1000,
+          period: "one-time",
+          description:
+            "Perfect for highest level businesses needing a high and comfortable level inspiring online presence.",
+          features: [
+            "Custom Designed Pages(According To Need)",
+            "Mobile Responsive Design",
+            "Animations(According To Need)",
+            "DataBase Management",
+            "First 12 Months Maintenance",
+            "Custom UI/UX design",
+            "Content integration",
+            "High Level SEO setup",
+            "E-commerce setup (Optional)",
+            "Payment gateway integration (Optional)",
+            "Basic security setup: SSL certificate setup / HTTPS",
+            "New Features Needed 1-10",
+            "Live Meetings About The Project",
+            "Project Update News",
+          ],
+        },
+        // Web Designing Packags (5 - 8)
+        {
+          id: 5,
+          name: "Basic Designing",
+          type: "web-designing",
+          price: 50,
+          period: "one-time",
+          description:
+            "Perfect for small websites needing a neat inspiring theme.",
+          features: [
+            "1-3 pages",
+            "Responsive design ",
+            "2-3 Design revisions",
+            "visual elements: Icons, banners, buttons, images",
+            "Custom Color scheme and Branding included",
+            "Free consultation",
+            "Delivery format",
+          ],
+        },
+        {
+          id: 6,
+          name: "Normal Level Designing",
+          type: "web-designing",
+          price: 80,
+          period: "one-time",
+          description:
+            "Perfect for small websites needing a neat inspiring theme.",
+          features: [
+            "1-5 pages",
+            "Responsive design ",
+            "1-7 Design revisions",
+            "visual elements: Icons, banners, buttons, images",
+            "Custom Color scheme and Branding included",
+            "Made According To Reference Theme",
+            "Free consultation",
+            "Delivery format",
+            "Wireframe / mockup design",
+            "Call-to-action (CTA) design: Included",
+          ],
+        },
+        {
+          id: 7,
+          name: "Mad Level Designing",
+          type: "web-designing",
+          price: 120,
+          period: "one-time",
+          description:
+            "Perfect for small websites needing a neat inspiring theme.",
+          features: [
+            "1-7 pages",
+            "Responsive design ",
+            "1-10 Design revisions",
+            "visual elements: Icons, banners, buttons, images",
+            "Custom Color scheme and Branding included",
+            "Made According To Reference Theme",
+            "1-3 Animations",
+            "Free consultation",
+            "SEO Friendly",
+            "Delivery format",
+            "Wireframe / mockup design",
+            "Call-to-action (CTA) design: Included",
+          ],
+        },
+        {
+          id: 8,
+          name: "Max Level Designing",
+          type: "web-designing",
+          price: 200,
+          period: "one-time",
+          description:
+            "Perfect for small websites needing a neat inspiring theme.",
+          features: [
+            "All Pages",
+            "Responsive design ",
+            "1-10 Design revisions",
+            "visual elements: Icons, banners, buttons, images",
+            "Custom Color scheme and Branding included",
+            "Made According To Reference Theme",
+            "1-5 Animations",
+            "Free consultation",
+            "SEO Friendly",
+            "Enhacning Speed",
+            "Max Level Designing",
+            "Delivery format",
+            "Wireframe / mockup design",
+            "Call-to-action (CTA) design: Included",
+          ],
+        },
+        // Digital Marketting Packages (9 - 12)
+        {
+          id: 9,
+          name: "Not Know",
+          type: "digital-marketting",
+          price: "Not Know",
+          period: "Not Know",
+          description:
+            "Not Know",
+          features: [
+
+          ],
+        },
+      ];
+
+      // Function to render packages
+      function renderPackages(filterType = "all") {
+        const container = document.getElementById("packagesContainer");
+        container.innerHTML = "";
+
+        // Filter packages if needed
+        const filteredPackages =
+          filterType === "all"
+            ? packages
+            : packages.filter((pkg) => pkg.type === filterType);
+
+        // Show empty state if no packages
+        if (filteredPackages.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No packages found</h3>
+                        <p>There are no packages available for the selected category.</p>
+                        <button class="reset-filters" onclick="resetFilters()">Show All Packages</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Render each package
+        filteredPackages.forEach((pkg) => {
+          // Determine type display text
+          let typeDisplay = "";
+
+          switch (pkg.type) {
+            case "web-development":
+              typeDisplay = "Web Development";
+              break;
+            case "web-designing":
+              typeDisplay = "Web Designing";
+              break;
+            case "digital-marketting":
+              typeDisplay = "Digital Marketting";
+              break;
+            case "content-creation":
+              typeDisplay = "Content Creation";
+              break;
+          }
+
+          // Create package card
+          const packageCard = document.createElement("div");
+          packageCard.className = "package-card";
+          packageCard.setAttribute("data-type", pkg.type);
+
+          packageCard.innerHTML = `
+                    <div class="package-header">
+                        <div class="package-type">${typeDisplay}</div>
+                        <h2 class="package-title">${pkg.name}</h2>
+                        <div class="package-price">$${pkg.price}<span>/${
+            pkg.period
+          }</span></div>
+                        <p class="package-description">${pkg.description}</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <h4 class="features-title">What's Included:</h4>
+                        <ul class="features-list">
+                            ${pkg.features
+                              .map(
+                                (feature) =>
+                                  `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+                              )
+                              .join("")}
+                        </ul>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <button class="btn" onclick="selectPackage(${pkg.id})">
+                            Select Package
+                            <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        </button>
+                    </div>
+                `;
+
+          container.appendChild(packageCard);
+        });
+      }
+
+      // Function to handle filter button clicks
+      function setupFilterButtons() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            // Get filter type from data attribute
+            const filterType = button.getAttribute("data-type");
+
+            // Render packages with filter
+            renderPackages(filterType);
+          });
+        });
+      }
+
+      // Function to reset filters
+      function resetFilters() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        filterButtons.forEach((btn) => {
+          if (btn.getAttribute("data-type") === "all") {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        renderPackages("all");
+      }
+
+      // Function to handle package selection
+      function selectPackage(packageId) {
+        const selectedPackage = packages.find((pkg) => pkg.id === packageId);
+
+        // Show a nice modal/alert
+        alert(
+          `You've selected the "${selectedPackage.name}" package!\n\nPrice: $${selectedPackage.price}/${selectedPackage.period}\n\nA member of our team will contact you within 24 hours to discuss your project requirements.`
+        );
+
+        // In a real application, you would:
+        // 1. Redirect to a checkout page
+        // 2. Open a contact form modal
+        // 3. Send data to your backend
+      }
+
+      // Function to add a new package (for your use only)
+      function addNewPackage(name, type, price, period, description, features) {
+        const newPackage = {
+          id: packages.length + 1,
+          name: name,
+          type: type,
+          price: price,
+          period: period,
+          description: description,
+          features: features,
+        };
+
+        packages.push(newPackage);
+
+        // Re-render packages with current filter
+        const activeFilter = document
+          .querySelector(".filter-btn.active")
+          .getAttribute("data-type");
+        renderPackages(activeFilter);
+
+        console.log("New package added:", newPackage);
+      }
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render all packages initially
+        renderPackages();
+
+        // Setup filter buttons
+        setupFilterButtons();
+
+        // Show admin note only if URL has #admin parameter
+        if (window.location.hash === "#admin") {
+          document.getElementById("adminNote").style.display = "block";
+        }
+      });
+
+      // Example of how to add a new package programmatically:
+      // addNewPackage(
+      //     "Advanced SEO Package", // name
+      //     "content-creation", // type
+      //     1499, // price
+      //     "monthly", // period
+      //     "Comprehensive SEO strategy and implementation.", // description
+      //     ["Technical SEO Audit", "Keyword Research", "Content Strategy", "Backlink Building", "Monthly Reports", "Competitor Analysis"] // features
+      // );
+      // ========================
+      // ADD CURRENCY CONVERSION FUNCTIONS HERE
+      // ========================
+
+      /**
+       * Main function to detect user's country and convert package prices
+       */
+      async function convertPackagePricesToLocalCurrency() {
+        try {
+          console.log("Starting currency conversion for packages...");
+
+          // 1. First, detect the user's country
+          const countryCode = await detectUserCountry();
+          if (!countryCode) {
+            console.log("Could not detect country, keeping USD prices");
+            return;
+          }
+
+          // 2. Get the currency code for this country
+          const currencyCode = getCurrencyForCountry(countryCode);
+          if (!currencyCode || currencyCode === "USD") {
+            console.log(
+              "User is in USD country or currency not found, keeping USD prices"
+            );
+            return;
+          }
+
+          console.log(
+            `Detected country: ${countryCode}, currency: ${currencyCode}`
+          );
+
+          // 3. Get exchange rate from USD to user's currency
+          const exchangeRate = await getExchangeRate("USD", currencyCode);
+          if (!exchangeRate) {
+            console.log("Could not get exchange rate, keeping USD prices");
+            return;
+          }
+
+          // 4. Convert all package prices on the page
+          convertAllPackagePrices(exchangeRate, currencyCode);
+
+          // 5. Add currency toggle for user convenience
+          addCurrencyToggle(exchangeRate, currencyCode);
+        } catch (error) {
+          console.error("Error in currency conversion:", error);
+        }
+      }
+
+      /**
+       * Detect user's country using free IP geolocation API
+       */
+      async function detectUserCountry() {
+        try {
+          // Using ipapi.co - free for 1,000 requests/month
+          const response = await fetch("https://ipapi.co/json/");
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          return data.country_code;
+        } catch (error) {
+          console.warn(
+            "Could not detect country via ipapi.co, trying fallback..."
+          );
+
+          // Fallback: Try another free service
+          try {
+            const fallbackResponse = await fetch("https://api.country.is/");
+            if (fallbackResponse.ok) {
+              const fallbackData = await fallbackResponse.json();
+              return fallbackData.country;
+            }
+          } catch (fallbackError) {
+            console.warn("Fallback country detection also failed");
+          }
+
+          return null;
+        }
+      }
+
+      /**
+       * Get currency code for a given country code
+       */
+      function getCurrencyForCountry(countryCode) {
+        const countryToCurrency = {
+          // North America
+          US: "USD",
+          CA: "CAD",
+          MX: "MXN",
+
+          // Europe
+          GB: "GBP",
+          DE: "EUR",
+          FR: "EUR",
+          IT: "EUR",
+          ES: "EUR",
+          PT: "EUR",
+          NL: "EUR",
+          BE: "EUR",
+          CH: "CHF",
+          SE: "SEK",
+          NO: "NOK",
+          DK: "DKK",
+          PL: "PLN",
+          CZ: "CZK",
+          HU: "HUF",
+          RO: "RON",
+          BG: "BGN",
+          GR: "EUR",
+          AT: "EUR",
+          IE: "EUR",
+          FI: "EUR",
+          RU: "RUB",
+          UA: "UAH",
+
+          // Asia
+          JP: "JPY",
+          CN: "CNY",
+          IN: "INR",
+          KR: "KRW",
+          ID: "IDR",
+          TH: "THB",
+          VN: "VND",
+          MY: "MYR",
+          PH: "PHP",
+          SG: "SGD",
+          HK: "HKD",
+          TW: "TWD",
+          IL: "ILS",
+          SA: "SAR",
+          AE: "AED",
+          TR: "TRY",
+          PK: "PKR", // Added Pakistan
+
+          // Oceania
+          AU: "AUD",
+          NZ: "NZD",
+
+          // South America
+          BR: "BRL",
+          AR: "ARS",
+          CL: "CLP",
+          CO: "COP",
+          PE: "PEN",
+
+          // Africa
+          ZA: "ZAR",
+          NG: "NGN",
+          EG: "EGP",
+          KE: "KES",
+          GH: "GHS",
+          MA: "MAD",
+        };
+
+        return countryToCurrency[countryCode.toUpperCase()] || null;
+      }
+
+      /**
+       * Get exchange rate from USD to another currency
+       * Using mock rates for testing - get a real API key for production
+       */
+      async function getExchangeRate(fromCurrency, toCurrency) {
+        // For testing, use mock rates
+        // In production, get a free API key from https://www.exchangerate-api.com/
+        const mockRates = {
+          EUR: 0.92, // 1 USD = 0.92 EUR
+          GBP: 0.79, // 1 USD = 0.79 GBP
+          CAD: 1.36, // 1 USD = 1.36 CAD
+          AUD: 1.52, // 1 USD = 1.52 AUD
+          JPY: 148.5, // 1 USD = 148.5 JPY
+          INR: 83.2, // 1 USD = 83.2 INR
+          CNY: 7.18, // 1 USD = 7.18 CNY
+          BRL: 4.98, // 1 USD = 4.98 BRL
+          MXN: 17.3, // 1 USD = 17.3 MXN
+          AED: 3.67, // 1 USD = 3.67 AED
+          SGD: 1.34, // 1 USD = 1.34 SGD
+          CHF: 0.88, // 1 USD = 0.88 CHF
+          NZD: 1.62, // 1 USD = 1.62 NZD
+          SEK: 10.45, // 1 USD = 10.45 SEK
+          NOK: 10.68, // 1 USD = 10.68 NOK
+          DKK: 6.88, // 1 USD = 6.88 DKK
+          ZAR: 18.75, // 1 USD = 18.75 ZAR
+          RUB: 91.4, // 1 USD = 91.4 RUB
+          PKR: 278.5, // 1 USD = 278.5 PKR - ADDED FOR PAKISTAN
+        };
+
+        // If we have a mock rate for the target currency, use it
+        if (mockRates[toCurrency]) {
+          console.log(
+            `Using mock rate for ${toCurrency}: ${mockRates[toCurrency]}`
+          );
+          return mockRates[toCurrency];
+        }
+
+        // Default to 1:1 if no mock rate available
+        console.log(`No rate found for ${toCurrency}, using 1:1`);
+        return 1;
+      }
+
+      /**
+       * Convert all package prices on the page
+       */
+      function convertAllPackagePrices(exchangeRate, currencyCode) {
+        console.log(
+          `Converting prices with rate: ${exchangeRate}, currency: ${currencyCode}`
+        );
+
+        // Find all package price elements
+        const priceElements = document.querySelectorAll(".package-price");
+        console.log(`Found ${priceElements.length} price elements to convert`);
+
+        priceElements.forEach((element, index) => {
+          console.log(
+            `Converting price element ${index + 1}:`,
+            element.innerHTML
+          );
+          convertSinglePrice(element, exchangeRate, currencyCode);
+        });
+      }
+
+      /**
+       * Convert a single price element
+       */
+      function convertSinglePrice(priceElement, exchangeRate, currencyCode) {
+        // Get the original price text
+        const originalText = priceElement.innerHTML;
+
+        // Extract the dollar amount - match $100</span> pattern
+        const priceMatch = originalText.match(/\$(\d+)(<span>.*<\/span>)?/);
+
+        if (priceMatch && priceMatch[1]) {
+          const originalPrice = parseFloat(priceMatch[1]);
+
+          if (!isNaN(originalPrice) && originalPrice > 0) {
+            // Store original for toggling
+            priceElement.setAttribute("data-original-price", originalPrice);
+            priceElement.setAttribute("data-original-html", originalText);
+
+            // Calculate converted price
+            const convertedPrice = originalPrice * exchangeRate;
+
+            // Format the price based on currency
+            const formattedPrice = formatCurrency(convertedPrice, currencyCode);
+
+            // Get the period text
+            const periodMatch = originalText.match(/<span>(.*?)<\/span>/);
+            const periodText = periodMatch ? periodMatch[0] : "/one-time";
+
+            // Update the display
+            priceElement.innerHTML = `${formattedPrice}${periodText}`;
+
+            // Add a small indicator that price is converted
+            const parentCard = priceElement.closest(".package-card");
+            if (
+              parentCard &&
+              !parentCard.querySelector(".currency-indicator")
+            ) {
+              const indicator = document.createElement("div");
+              indicator.className = "currency-indicator";
+              indicator.innerHTML = `≈ ${currencyCode} (Converted from USD)`;
+              indicator.style.cssText = `
+                            font-size: 12px;
+                            color: #666;
+                            margin-top: 5px;
+                            font-style: italic;
+                        `;
+              priceElement.parentNode.insertBefore(
+                indicator,
+                priceElement.nextSibling
+              );
+            }
+
+            console.log(`Converted $${originalPrice} to ${formattedPrice}`);
+          }
+        }
+      }
+
+      /**
+       * Format currency amount with proper symbol and formatting
+       */
+      function formatCurrency(amount, currencyCode) {
+        // Round to 2 decimal places for most currencies, 0 for some
+        const decimals = ["JPY", "KRW", "VND", "IDR", "PKR"].includes(
+          currencyCode
+        )
+          ? 0
+          : 2;
+        const roundedAmount = amount.toFixed(decimals);
+
+        // Add currency symbol
+        const currencySymbols = {
+          USD: "$",
+          EUR: "€",
+          GBP: "£",
+          JPY: "¥",
+          CAD: "CA$",
+          AUD: "A$",
+          CNY: "CN¥",
+          INR: "₹",
+          BRL: "R$",
+          RUB: "₽",
+          KRW: "₩",
+          TRY: "₺",
+          MXN: "MX$",
+          CHF: "CHF ",
+          SEK: "kr ",
+          NOK: "kr ",
+          DKK: "kr ",
+          PLN: "zł ",
+          CZK: "Kč ",
+          HUF: "Ft ",
+          RON: "lei ",
+          BGN: "лв ",
+          ZAR: "R ",
+          AED: "د.إ ",
+          SAR: "ر.س ",
+          THB: "฿ ",
+          MYR: "RM ",
+          PHP: "₱ ",
+          SGD: "S$ ",
+          NZD: "NZ$ ",
+          HKD: "HK$ ",
+          TWD: "NT$ ",
+          ILS: "₪ ",
+          EGP: "E£ ",
+          NGN: "₦ ",
+          PKR: "Rs ", // Added for Pakistan
+        };
+
+        const symbol = currencySymbols[currencyCode] || `${currencyCode} `;
+
+        // Format number with thousands separators
+        const parts = roundedAmount.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        return `${symbol}${parts.join(".")}`;
+      }
+
+      /**
+       * Add a toggle button to switch between USD and local currency
+       */
+      function addCurrencyToggle(exchangeRate, currencyCode) {
+        // Check if toggle already exists
+        if (document.getElementById("currencyToggle")) return;
+
+        // Create toggle button
+        const toggle = document.createElement("button");
+        toggle.id = "currencyToggle";
+        toggle.innerHTML = `Switch to USD`;
+
+        // Toggle functionality
+        let showingLocal = true;
+
+        toggle.addEventListener("click", () => {
+          if (showingLocal) {
+            // Switch back to USD
+            revertToUSD();
+            toggle.innerHTML = `Switch to ${currencyCode}`;
+            showingLocal = false;
+          } else {
+            // Switch to local currency
+            convertAllPackagePrices(exchangeRate, currencyCode);
+            toggle.innerHTML = `Switch to USD`;
+            showingLocal = true;
+          }
+        });
+
+        document.body.appendChild(toggle);
+      }
+
+      /**
+       * Revert all prices back to USD
+       */
+      function revertToUSD() {
+        const priceElements = document.querySelectorAll(".package-price");
+
+        priceElements.forEach((element) => {
+          if (element.hasAttribute("data-original-html")) {
+            element.innerHTML = element.getAttribute("data-original-html");
+
+            // Remove the currency indicator
+            const indicator = element.parentNode.querySelector(
+              ".currency-indicator"
+            );
+            if (indicator) {
+              indicator.remove();
+            }
+          }
+        });
+      }
+
+      /**
+       * Initialize currency conversion after packages are rendered
+       */
+      function initializeCurrencyConversion() {
+        console.log("Initializing currency conversion...");
+
+        // Wait for packages to be rendered
+        setTimeout(() => {
+          convertPackagePricesToLocalCurrency();
+        }, 500); // Small delay to ensure packages are rendered
+      }
+
+      // ========================
+      // UPDATE YOUR EXISTING DOMContentLoaded FUNCTION
+      // ========================
+      document.addEventListener("DOMContentLoaded", () => {
+        // Your existing initialization code
+        renderPackages();
+        setupFilterButtons();
+
+        // Add currency conversion initialization
+        initializeCurrencyConversion();
+
+        // Show admin note
+        if (window.location.hash === "#admin") {
+          document.getElementById("adminNote").style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Service Packages</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 20px;
+        --max-width: 1400px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --web-dev: #4a6fff;
+        --web-design: #ff6b9d;
+        --ads-making: #00d09c;
+        --content-creation: #ffb74d;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      /* Filter Section */
+      .filter-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 60px;
+      }
+
+      .filter-btn {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--accent);
+        background: white;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .filter-btn[data-type="web-development"]:hover,
+      .filter-btn[data-type="web-development"].active {
+        background: var(--web-dev);
+        border-color: var(--web-dev);
+      }
+
+      .filter-btn[data-type="web-designing"]:hover,
+      .filter-btn[data-type="web-designing"].active {
+        background: var(--web-design);
+        border-color: var(--web-design);
+      }
+
+      .filter-btn[data-type="ads-making"]:hover,
+      .filter-btn[data-type="ads-making"].active {
+        background: var(--ads-making);
+        border-color: var(--ads-making);
+      }
+
+      .filter-btn[data-type="content-creation"]:hover,
+      .filter-btn[data-type="content-creation"].active {
+        background: var(--content-creation);
+        border-color: var(--content-creation);
+      }
+
+      /* Packages Grid */
+      .packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 32px;
+        margin-bottom: 80px;
+      }
+
+      .package-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--accent);
+        position: relative;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      }
+
+      .package-header {
+        padding: 36px 36px 28px;
+        position: relative;
+      }
+
+      .package-header:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        transition: height 0.3s ease;
+      }
+
+      .package-card[data-type="web-development"] .package-header:before {
+        background: var(--web-dev);
+        height: 6px;
+      }
+
+      .package-card[data-type="web-designing"] .package-header:before {
+        background: var(--web-design);
+        height: 6px;
+      }
+
+      .package-card[data-type="ads-making"] .package-header:before {
+        background: var(--ads-making);
+        height: 6px;
+      }
+
+      .package-card[data-type="content-creation"] .package-header:before {
+        background: var(--content-creation);
+        height: 6px;
+      }
+
+      .package-type {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .package-card[data-type="web-development"] .package-type {
+        background: rgba(74, 111, 255, 0.1);
+        color: var(--web-dev);
+      }
+
+      .package-card[data-type="web-designing"] .package-type {
+        background: rgba(255, 107, 157, 0.1);
+        color: var(--web-design);
+      }
+
+      .package-card[data-type="ads-making"] .package-type {
+        background: rgba(0, 208, 156, 0.1);
+        color: var(--ads-making);
+      }
+
+      .package-card[data-type="content-creation"] .package-type {
+        background: rgba(255, 183, 77, 0.1);
+        color: var(--content-creation);
+      }
+
+      .package-title {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        color: var(--primary);
+      }
+
+      .package-price {
+        font-size: 42px;
+        font-weight: 900;
+        margin-bottom: 8px;
+        color: var(--primary);
+      }
+
+      .package-price span {
+        font-size: 18px;
+        color: var(--secondary);
+        font-weight: 500;
+      }
+
+      .package-description {
+        color: var(--secondary);
+        margin-bottom: 10px;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .package-features {
+        padding: 0 36px 36px;
+      }
+
+      .features-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .features-list {
+        list-style: none;
+      }
+
+      .features-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 14px;
+        font-size: 15px;
+        color: var(--secondary);
+      }
+
+      .features-list li i {
+        color: var(--ads-making);
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      .package-cta {
+        padding: 0 36px 36px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 18px;
+        border-radius: 50px;
+        background: var(--gradient);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn:hover:before {
+        left: 100%;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        grid-column: 1 / -1;
+      }
+
+      .empty-state h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .empty-state p {
+        color: var(--secondary);
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .reset-filters {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .reset-filters:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Admin Note (Hidden from users) */
+      .admin-note {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 60px;
+        border: 2px dashed #dee2e6;
+        display: none; /* Hidden from users */
+      }
+
+      .admin-note h3 {
+        color: #495057;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .admin-note code {
+        background: #e9ecef;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+        margin-top: 60px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1100px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 0 30px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .packages-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .filter-section {
+          gap: 8px;
+        }
+
+        .filter-btn {
+          padding: 12px 20px;
+          font-size: 14px;
+        }
+
+        .package-header,
+        .package-features,
+        .package-cta {
+          padding-left: 28px;
+          padding-right: 28px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .package-title {
+          font-size: 24px;
+        }
+
+        .package-price {
+          font-size: 36px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="#" class="logo">
+          <span>Albert Max</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Service Packages</h1>
+        <p>
+          Choose the perfect package for your digital needs. All packages are
+          designed to deliver exceptional results and can be customized to fit
+          your specific requirements.
+        </p>
+
+        <div class="filter-section">
+          <button class="filter-btn active" data-type="all">
+            All Packages
+          </button>
+          <button class="filter-btn" data-type="web-development">
+            Web Development
+          </button>
+          <button class="filter-btn" data-type="web-designing">
+            Web Designing
+          </button>
+          <button class="filter-btn" data-type="ads-making">Ads Making</button>
+          <button class="filter-btn" data-type="content-creation">
+            Content Creation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+      <div class="container">
+        <div class="packages-grid" id="packagesContainer">
+          <!-- Packages will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="policies.html">Policies</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. Premium Digital Growth & Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Hidden Admin Section (For developer use only) -->
+    <div class="admin-note" id="adminNote">
+      <div class="container">
+        <h3><i class="fas fa-code"></i> Developer Note</h3>
+        <p>
+          To add new packages, edit the <code>packages</code> array in the
+          JavaScript. The JSON data is now hidden from users.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Packages data - Only visible in JavaScript, not shown to users
+      const packages = [
+        {
+          id: 1,
+          name: "Starter Website",
+          type: "web-development",
+          price: 899,
+          period: "one-time",
+          description:
+            "Perfect for small businesses needing a simple online presence.",
+          features: [
+            "5 Custom Designed Pages",
+            "Mobile Responsive Design",
+            "Basic SEO Setup",
+            "Contact Form",
+            "1 Year Free Hosting",
+            "3 Months Support",
+          ],
+        },
+        {
+          id: 2,
+          name: "E-Commerce Pro",
+          type: "web-development",
+          price: 2499,
+          period: "one-time",
+          description:
+            "Complete online store with payment integration and product management.",
+          features: [
+            "Product Catalog (up to 50 items)",
+            "Secure Payment Gateway",
+            "Inventory Management",
+            "Customer Accounts",
+            "Order Tracking",
+            "6 Months Support",
+          ],
+        },
+        {
+          id: 3,
+          name: "UI/UX Design Package",
+          type: "web-designing",
+          price: 699,
+          period: "project",
+          description:
+            "Modern, user-friendly interface design for your website or app.",
+          features: [
+            "Wireframing & Prototyping",
+            "UI Design for 10 Screens",
+            "User Flow Diagrams",
+            "Style Guide",
+            "Responsive Design",
+            "2 Revisions",
+          ],
+        },
+        {
+          id: 4,
+          name: "Brand Identity Design",
+          type: "web-designing",
+          price: 499,
+          period: "project",
+          description:
+            "Complete visual identity including logo, colors, and typography.",
+          features: [
+            "3 Logo Concepts",
+            "Color Palette",
+            "Typography Selection",
+            "Business Card Design",
+            "Social Media Kit",
+            "Brand Guidelines PDF",
+          ],
+        },
+        {
+          id: 5,
+          name: "Social Media Ad Campaign",
+          type: "ads-making",
+          price: 799,
+          period: "monthly",
+          description:
+            "Targeted social media advertising to reach your ideal customers.",
+          features: [
+            "Ad Strategy & Planning",
+            "5 Ad Creatives",
+            "Copywriting",
+            "Target Audience Setup",
+            "A/B Testing",
+            "Performance Reports",
+          ],
+        },
+        {
+          id: 6,
+          name: "Google Ads Management",
+          type: "ads-making",
+          price: 999,
+          period: "monthly",
+          description:
+            "Drive qualified traffic to your website with optimized Google Ads.",
+          features: [
+            "Keyword Research",
+            "Ad Copy Creation",
+            "Landing Page Optimization",
+            "Conversion Tracking",
+            "Weekly Optimization",
+            "Monthly Performance Review",
+          ],
+        },
+        {
+          id: 7,
+          name: "Blog Content Package",
+          type: "content-creation",
+          price: 399,
+          period: "monthly",
+          description:
+            "Regular, high-quality blog posts to improve your SEO and engagement.",
+          features: [
+            "4 Blog Posts (500+ words)",
+            "Keyword Optimization",
+            "Featured Images",
+            "SEO Meta Descriptions",
+            "Social Media Snippets",
+            "Content Calendar",
+          ],
+        },
+        {
+          id: 8,
+          name: "Video Content Creation",
+          type: "content-creation",
+          price: 1299,
+          period: "monthly",
+          description:
+            "Professional video content for social media and marketing.",
+          features: [
+            "4 Short Videos (1-2 mins)",
+            "Script Writing",
+            "Professional Editing",
+            "Motion Graphics",
+            "Subtitles & Captions",
+            "Platform Optimization",
+          ],
+        },
+        {
+          id: 9,
+          name: "Custom Web Application",
+          type: "web-development",
+          price: 3499,
+          period: "project",
+          description:
+            "Tailored web application with custom functionality and database.",
+          features: [
+            "Custom Database Design",
+            "User Authentication System",
+            "Admin Dashboard",
+            "API Integration",
+            "Advanced Security Features",
+            "12 Months Support",
+          ],
+        },
+        {
+          id: 10,
+          name: "Complete Digital Marketing",
+          type: "ads-making",
+          price: 1999,
+          period: "monthly",
+          description:
+            "Full-service digital marketing across all major platforms.",
+          features: [
+            "Google Ads & SEO",
+            "Social Media Advertising",
+            "Email Marketing Campaigns",
+            "Content Strategy",
+            "Analytics & Reporting",
+            "Weekly Strategy Calls",
+          ],
+        },
+      ];
+
+      // Function to render packages
+      function renderPackages(filterType = "all") {
+        const container = document.getElementById("packagesContainer");
+        container.innerHTML = "";
+
+        // Filter packages if needed
+        const filteredPackages =
+          filterType === "all"
+            ? packages
+            : packages.filter((pkg) => pkg.type === filterType);
+
+        // Show empty state if no packages
+        if (filteredPackages.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No packages found</h3>
+                        <p>There are no packages available for the selected category.</p>
+                        <button class="reset-filters" onclick="resetFilters()">Show All Packages</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Render each package
+        filteredPackages.forEach((pkg) => {
+          // Determine type display text
+          let typeDisplay = "";
+
+          switch (pkg.type) {
+            case "web-development":
+              typeDisplay = "Web Development";
+              break;
+            case "web-designing":
+              typeDisplay = "Web Designing";
+              break;
+            case "ads-making":
+              typeDisplay = "Ads Making";
+              break;
+            case "content-creation":
+              typeDisplay = "Content Creation";
+              break;
+          }
+
+          // Create package card
+          const packageCard = document.createElement("div");
+          packageCard.className = "package-card";
+          packageCard.setAttribute("data-type", pkg.type);
+
+          packageCard.innerHTML = `
+                    <div class="package-header">
+                        <div class="package-type">${typeDisplay}</div>
+                        <h2 class="package-title">${pkg.name}</h2>
+                        <div class="package-price">$${pkg.price}<span>/${
+            pkg.period
+          }</span></div>
+                        <p class="package-description">${pkg.description}</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <h4 class="features-title">What's Included:</h4>
+                        <ul class="features-list">
+                            ${pkg.features
+                              .map(
+                                (feature) =>
+                                  `<li><i class="fas fa-check-circle"></i> ${feature}</li>`
+                              )
+                              .join("")}
+                        </ul>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <button class="btn" onclick="selectPackage(${pkg.id})">
+                            Select Package
+                            <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        </button>
+                    </div>
+                `;
+
+          container.appendChild(packageCard);
+        });
+      }
+
+      // Function to handle filter button clicks
+      function setupFilterButtons() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            // Get filter type from data attribute
+            const filterType = button.getAttribute("data-type");
+
+            // Render packages with filter
+            renderPackages(filterType);
+          });
+        });
+      }
+
+      // Function to reset filters
+      function resetFilters() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        filterButtons.forEach((btn) => {
+          if (btn.getAttribute("data-type") === "all") {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        renderPackages("all");
+      }
+
+      // Function to handle package selection
+      function selectPackage(packageId) {
+        const selectedPackage = packages.find((pkg) => pkg.id === packageId);
+
+        // Show a nice modal/alert
+        alert(
+          `You've selected the "${selectedPackage.name}" package!\n\nPrice: $${selectedPackage.price}/${selectedPackage.period}\n\nA member of our team will contact you within 24 hours to discuss your project requirements.`
+        );
+
+        // In a real application, you would:
+        // 1. Redirect to a checkout page
+        // 2. Open a contact form modal
+        // 3. Send data to your backend
+      }
+
+      // Function to add a new package (for your use only)
+      function addNewPackage(name, type, price, period, description, features) {
+        const newPackage = {
+          id: packages.length + 1,
+          name: name,
+          type: type,
+          price: price,
+          period: period,
+          description: description,
+          features: features,
+        };
+
+        packages.push(newPackage);
+
+        // Re-render packages with current filter
+        const activeFilter = document
+          .querySelector(".filter-btn.active")
+          .getAttribute("data-type");
+        renderPackages(activeFilter);
+
+        console.log("New package added:", newPackage);
+      }
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render all packages initially
+        renderPackages();
+
+        // Setup filter buttons
+        setupFilterButtons();
+
+        // Show admin note only if URL has #admin parameter
+        if (window.location.hash === "#admin") {
+          document.getElementById("adminNote").style.display = "block";
+        }
+      });
+
+      // Example of how to add a new package programmatically:
+      // addNewPackage(
+      //     "Advanced SEO Package", // name
+      //     "content-creation", // type
+      //     1499, // price
+      //     "monthly", // period
+      //     "Comprehensive SEO strategy and implementation.", // description
+      //     ["Technical SEO Audit", "Keyword Research", "Content Strategy", "Backlink Building", "Monthly Reports", "Competitor Analysis"] // features
+      // );
+    </script>
+  </body>
+</html>
