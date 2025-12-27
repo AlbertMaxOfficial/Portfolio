@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Policies</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 16px;
+        --max-width: 1200px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --policy-terms: #3b82f6;
+        --policy-privacy: #10b981;
+        --policy-refund: #ef4444;
+        --policy-service: #8b5cf6;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 80px 0 60px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Policies Filter */
+      .filter-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 40px 0 60px;
+        padding: 0 20px;
+      }
+
+      .filter-btn {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--accent);
+        background: white;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .filter-btn[data-category="terms"]:hover,
+      .filter-btn[data-category="terms"].active {
+        background: var(--policy-terms);
+        border-color: var(--policy-terms);
+      }
+
+      .filter-btn[data-category="privacy"]:hover,
+      .filter-btn[data-category="privacy"].active {
+        background: var(--policy-privacy);
+        border-color: var(--policy-privacy);
+      }
+
+      .filter-btn[data-category="refund"]:hover,
+      .filter-btn[data-category="refund"].active {
+        background: var(--policy-refund);
+        border-color: var(--policy-refund);
+      }
+
+      .filter-btn[data-category="service"]:hover,
+      .filter-btn[data-category="service"].active {
+        background: var(--policy-service);
+        border-color: var(--policy-service);
+      }
+
+      /* Policies List */
+      .policies-container {
+        margin-bottom: 80px;
+      }
+
+      .policy-section {
+        margin-bottom: 60px;
+      }
+
+      .policy-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .policy-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      .policy-header[data-category="terms"] .policy-icon {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--policy-terms);
+      }
+
+      .policy-header[data-category="privacy"] .policy-icon {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--policy-privacy);
+      }
+
+      .policy-header[data-category="refund"] .policy-icon {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--policy-refund);
+      }
+
+      .policy-header[data-category="service"] .policy-icon {
+        background: rgba(139, 92, 246, 0.1);
+        color: var(--policy-service);
+      }
+
+      .policy-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .policy-description {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        line-height: 1.8;
+        margin-bottom: 32px;
+        max-width: 900px;
+      }
+
+      .policy-list {
+        list-style: none;
+        counter-reset: policy-counter;
+      }
+
+      .policy-item {
+        background: white;
+        border-radius: var(--radius);
+        padding: 32px;
+        margin-bottom: 24px;
+        border: 1px solid var(--accent);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .policy-item:before {
+        counter-increment: policy-counter;
+        content: counter(policy-counter);
+        position: absolute;
+        top: 24px;
+        left: 32px;
+        font-size: 1.5rem;
+        font-weight: 900;
+        opacity: 0.1;
+        font-size: 3rem;
+      }
+
+      .policy-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+      }
+
+      .policy-item h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+        padding-left: 40px;
+      }
+
+      .policy-item p {
+        color: var(--secondary);
+        line-height: 1.7;
+        padding-left: 40px;
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        background: white;
+        border-radius: var(--radius);
+        border: 2px dashed var(--accent);
+      }
+
+      .empty-state i {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 24px;
+      }
+
+      .empty-state h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 16px;
+      }
+
+      .empty-state p {
+        color: var(--secondary);
+        margin-bottom: 32px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .reset-btn {
+        padding: 14px 32px;
+        border-radius: 50px;
+        border: 2px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .reset-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+        margin-top: 60px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+
+      /* Last Updated */
+      .last-updated {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: #f8fafc;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+      }
+
+      .last-updated span {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .policy-title {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero {
+          padding: 60px 0 40px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .filter-section {
+          gap: 8px;
+        }
+
+        .filter-btn {
+          padding: 12px 20px;
+          font-size: 14px;
+        }
+
+        .policy-item {
+          padding: 24px;
+        }
+
+        .policy-item:before {
+          left: 24px;
+        }
+
+        .policy-item h3,
+        .policy-item p {
+          padding-left: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .policy-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 12px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <span>Albert Max</span>
+          </a>
+          <nav class="nav-links">
+            <a href="packages.html">Packages</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Our Policies</h1>
+        <p>
+          Transparent guidelines and procedures that govern our services,
+          ensuring clarity and trust in every interaction with Albert Max.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <div class="container">
+      <div class="filter-section">
+        <button class="filter-btn active" data-category="all">
+          <i class="fas fa-layer-group"></i> All Policies
+        </button>
+        <button class="filter-btn" data-category="terms">
+          <i class="fas fa-file-contract"></i> Terms & Conditions
+        </button>
+        <button class="filter-btn" data-category="privacy">
+          <i class="fas fa-shield-alt"></i> Privacy Policy
+        </button>
+        <button class="filter-btn" data-category="refund">
+          <i class="fas fa-undo-alt"></i> Refund Policy
+        </button>
+        <button class="filter-btn" data-category="service">
+          <i class="fas fa-cogs"></i> Service Policy
+        </button>
+      </div>
+    </div>
+
+    <!-- Policies Container -->
+    <div class="container">
+      <div class="policies-container" id="policiesContainer">
+        <!-- Policies will be loaded here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Last Updated -->
+    <div class="container">
+      <div class="last-updated">
+        <p>Last updated: <span id="lastUpdatedDate">December 15, 2025</span></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="packages.html">Packages</a>
+          <a href="policies.html">Policies</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. All rights reserved. Premium Digital Growth &
+          Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Policies Data - Add/Edit policies here
+      const policies = [
+        {
+          id: 1,
+          category: "terms",
+          title: "Terms of Service",
+          description:
+            "These terms govern your use of Albert Max services. By accessing or using our services, you agree to be bound by these terms.",
+          items: [
+            {
+              heading: "Acceptance of Terms",
+              description:
+                "By accessing and using our services, you accept and agree to be bound by the terms and provisions of this agreement.",
+            },
+            {
+              heading: "Service Description",
+              description:
+                "Albert Max provides digital design, development, and marketing services as described in individual service agreements.",
+            },
+            {
+              heading: "User Responsibilities",
+              description:
+                "Users are responsible for providing accurate information and maintaining the confidentiality of their account credentials.",
+            },
+            {
+              heading: "Intellectual Property",
+              description:
+                "All content and materials provided as part of our services are protected by copyright and intellectual property laws.",
+            },
+            {
+              heading: "Modification of Terms",
+              description:
+                "We reserve the right to modify these terms at any time. Continued use of services constitutes acceptance of modified terms.",
+            },
+          ],
+        },
+        {
+          id: 2,
+          category: "privacy",
+          title: "Privacy Policy",
+          description:
+            "How we collect, use, and protect your personal information when you use our services.",
+          items: [
+            {
+              heading: "Information Collection",
+              description:
+                "We collect information you provide directly, such as name, email, and project details when you contact us or use our services.",
+            },
+            {
+              heading: "Use of Information",
+              description:
+                "Your information is used to provide services, communicate with you, improve our offerings, and comply with legal obligations.",
+            },
+            {
+              heading: "Data Protection",
+              description:
+                "We implement security measures to protect your personal information from unauthorized access or disclosure.",
+            },
+            {
+              heading: "Third-Party Sharing",
+              description:
+                "We do not sell your personal information. We may share data with trusted partners only to provide our services.",
+            },
+            {
+              heading: "Your Rights",
+              description:
+                "You have the right to access, correct, or delete your personal information by contacting us directly.",
+            },
+          ],
+        },
+        {
+          id: 3,
+          category: "refund",
+          title: "Refund & Cancellation Policy",
+          description:
+            "Our policies regarding refunds, cancellations, and satisfaction guarantees for our services.",
+          items: [
+            {
+              heading: "Service Cancellation",
+              description:
+                "Clients may cancel services within 24 hours of purchase for a full refund, provided no work has commenced.",
+            },
+            {
+              heading: "Refund Eligibility",
+              description:
+                "Refunds are issued based on the completion status of the project and adherence to project milestones.",
+            },
+            {
+              heading: "Digital Products",
+              description:
+                "Due to the nature of digital services, refunds for completed work are issued at our discretion.",
+            },
+            {
+              heading: "Dispute Resolution",
+              description:
+                "We aim to resolve all disputes amicably. Unresolved issues will be handled according to our service agreement.",
+            },
+            {
+              heading: "Payment Disputes",
+              description:
+                "Clients must contact us directly regarding payment disputes before initiating chargebacks with financial institutions.",
+            },
+          ],
+        },
+        {
+          id: 4,
+          category: "service",
+          title: "Service Delivery Policy",
+          description:
+            "Guidelines on how we deliver services, timelines, revisions, and client responsibilities.",
+          items: [
+            {
+              heading: "Project Timeline",
+              description:
+                "Timelines are established during project kickoff and may be adjusted based on scope changes or client feedback delays.",
+            },
+            {
+              heading: "Revision Policy",
+              description:
+                "Each project includes a specified number of revisions. Additional revisions may incur extra charges.",
+            },
+            {
+              heading: "Client Cooperation",
+              description:
+                "Timely client feedback and provision of necessary materials are essential for meeting project deadlines.",
+            },
+            {
+              heading: "Quality Assurance",
+              description:
+                "All deliverables undergo quality checks before submission. We stand behind the quality of our work.",
+            },
+            {
+              heading: "Communication Protocol",
+              description:
+                "All project communication should occur through designated channels to ensure proper documentation and tracking.",
+            },
+          ],
+        },
+        {
+          id: 5,
+          category: "terms",
+          title: "Client Agreement",
+          description:
+            "Additional terms specific to client engagements and project work.",
+          items: [
+            {
+              heading: "Project Scope",
+              description:
+                "The scope of work is defined in individual project agreements. Additional work may require separate agreements.",
+            },
+            {
+              heading: "Payment Terms",
+              description:
+                "Payment schedules are outlined in project agreements. Late payments may result in project delays.",
+            },
+            {
+              heading: "Confidentiality",
+              description:
+                "Both parties agree to maintain the confidentiality of proprietary information shared during the engagement.",
+            },
+            {
+              heading: "Termination Rights",
+              description:
+                "Either party may terminate the agreement with written notice, subject to terms outlined in the service agreement.",
+            },
+          ],
+        },
+      ];
+
+      // Set last updated date
+      document.getElementById("lastUpdatedDate").textContent =
+        new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+      // Function to render policies
+      function renderPolicies(filterCategory = "all") {
+        const container = document.getElementById("policiesContainer");
+        container.innerHTML = "";
+
+        // Filter policies if needed
+        const filteredPolicies =
+          filterCategory === "all"
+            ? policies
+            : policies.filter((policy) => policy.category === filterCategory);
+
+        // Show empty state if no policies
+        if (filteredPolicies.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>No Policies Found</h3>
+                        <p>There are no policies available for the selected category.</p>
+                        <button class="reset-btn" onclick="resetFilters()">Show All Policies</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Group policies by category for better organization
+        const policiesByCategory = {};
+        filteredPolicies.forEach((policy) => {
+          if (!policiesByCategory[policy.category]) {
+            policiesByCategory[policy.category] = [];
+          }
+          policiesByCategory[policy.category].push(policy);
+        });
+
+        // Render each category section
+        Object.keys(policiesByCategory).forEach((category) => {
+          const categoryPolicies = policiesByCategory[category];
+
+          // Category header
+          let categoryTitle = "";
+          let categoryIcon = "";
+
+          switch (category) {
+            case "terms":
+              categoryTitle = "Terms & Conditions";
+              categoryIcon = "file-contract";
+              break;
+            case "privacy":
+              categoryTitle = "Privacy Policy";
+              categoryIcon = "shield-alt";
+              break;
+            case "refund":
+              categoryTitle = "Refund Policy";
+              categoryIcon = "undo-alt";
+              break;
+            case "service":
+              categoryTitle = "Service Policy";
+              categoryIcon = "cogs";
+              break;
+          }
+
+          // Create category section
+          categoryPolicies.forEach((policy) => {
+            const policySection = document.createElement("div");
+            policySection.className = "policy-section";
+
+            policySection.innerHTML = `
+                        <div class="policy-header" data-category="${
+                          policy.category
+                        }">
+                            <div class="policy-icon">
+                                <i class="fas fa-${categoryIcon}"></i>
+                            </div>
+                            <div>
+                                <h2 class="policy-title">${policy.title}</h2>
+                                <p class="policy-description">${
+                                  policy.description
+                                }</p>
+                            </div>
+                        </div>
+                        
+                        <ol class="policy-list">
+                            ${policy.items
+                              .map(
+                                (item) => `
+                                <li class="policy-item">
+                                    <h3>${item.heading}</h3>
+                                    <p>${item.description}</p>
+                                </li>
+                            `
+                              )
+                              .join("")}
+                        </ol>
+                    `;
+
+            container.appendChild(policySection);
+          });
+        });
+      }
+
+      // Function to handle filter button clicks
+      function setupFilterButtons() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            // Get filter category from data attribute
+            const filterCategory = button.getAttribute("data-category");
+
+            // Render policies with filter
+            renderPolicies(filterCategory);
+
+            // Scroll to policies section
+            document.getElementById("policiesContainer").scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          });
+        });
+      }
+
+      // Function to reset filters
+      function resetFilters() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        filterButtons.forEach((btn) => {
+          if (btn.getAttribute("data-category") === "all") {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        renderPolicies("all");
+      }
+
+      // Function to add a new policy (for developer use)
+      function addNewPolicy(category, title, description, items) {
+        const newPolicy = {
+          id: policies.length + 1,
+          category: category,
+          title: title,
+          description: description,
+          items: items,
+        };
+
+        policies.push(newPolicy);
+
+        // Re-render policies with current filter
+        const activeFilter = document
+          .querySelector(".filter-btn.active")
+          .getAttribute("data-category");
+        renderPolicies(activeFilter);
+
+        console.log("New policy added:", newPolicy);
+      }
+
+      // Example of adding a new policy programmatically:
+      /*
+        addNewPolicy(
+            'terms', // category
+            'Intellectual Property Policy', // title
+            'Guidelines regarding ownership and usage rights of intellectual property created during projects.', // description
+            [
+                {
+                    heading: 'Ownership Transfer',
+                    description: 'Upon full payment, clients receive full ownership of deliverables as specified in the project agreement.'
+                },
+                {
+                    heading: 'Portfolio Rights',
+                    description: 'Albert Max reserves the right to display completed work in portfolio and marketing materials.'
+                },
+                {
+                    heading: 'Third-Party Assets',
+                    description: 'Clients are responsible for securing licenses for any third-party assets used in their projects.'
+                }
+            ]
+        );
+        */
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render all policies initially
+        renderPolicies();
+
+        // Setup filter buttons
+        setupFilterButtons();
+      });
+
+      // Search functionality (optional enhancement)
+      function searchPolicies(query) {
+        if (!query.trim()) {
+          resetFilters();
+          return;
+        }
+
+        const searchResults = policies.filter((policy) => {
+          const searchText = (
+            policy.title +
+            " " +
+            policy.description +
+            " " +
+            policy.items
+              .map((item) => item.heading + " " + item.description)
+              .join(" ")
+          ).toLowerCase();
+
+          return searchText.includes(query.toLowerCase());
+        });
+
+        // Create search results view
+        const container = document.getElementById("policiesContainer");
+        container.innerHTML = "";
+
+        if (searchResults.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>No Results Found</h3>
+                        <p>No policies match your search query: "${query}"</p>
+                        <button class="reset-btn" onclick="resetFilters()">Show All Policies</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Render search results
+        searchResults.forEach((policy) => {
+          const policySection = document.createElement("div");
+          policySection.className = "policy-section";
+
+          let categoryIcon = "";
+          switch (policy.category) {
+            case "terms":
+              categoryIcon = "file-contract";
+              break;
+            case "privacy":
+              categoryIcon = "shield-alt";
+              break;
+            case "refund":
+              categoryIcon = "undo-alt";
+              break;
+            case "service":
+              categoryIcon = "cogs";
+              break;
+          }
+
+          policySection.innerHTML = `
+                    <div class="policy-header" data-category="${
+                      policy.category
+                    }">
+                        <div class="policy-icon">
+                            <i class="fas fa-${categoryIcon}"></i>
+                        </div>
+                        <div>
+                            <h2 class="policy-title">${policy.title}</h2>
+                            <p class="policy-description">${
+                              policy.description
+                            }</p>
+                        </div>
+                    </div>
+                    
+                    <ol class="policy-list">
+                        ${policy.items
+                          .map(
+                            (item) => `
+                            <li class="policy-item">
+                                <h3>${item.heading}</h3>
+                                <p>${item.description}</p>
+                            </li>
+                        `
+                          )
+                          .join("")}
+                    </ol>
+                `;
+
+          container.appendChild(policySection);
+        });
+      }
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Policies</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 16px;
+        --max-width: 1200px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --policy-terms: #3b82f6;
+        --policy-privacy: #10b981;
+        --policy-refund: #ef4444;
+        --policy-service: #8b5cf6;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 80px 0 60px;
+        text-align: center;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+
+      /* Policies Filter */
+      .filter-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 40px 0 60px;
+        padding: 0 20px;
+      }
+
+      .filter-btn {
+        padding: 14px 28px;
+        border-radius: 50px;
+        border: 2px solid var(--accent);
+        background: white;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .filter-btn[data-category="terms"]:hover,
+      .filter-btn[data-category="terms"].active {
+        background: var(--policy-terms);
+        border-color: var(--policy-terms);
+      }
+
+      .filter-btn[data-category="privacy"]:hover,
+      .filter-btn[data-category="privacy"].active {
+        background: var(--policy-privacy);
+        border-color: var(--policy-privacy);
+      }
+
+      .filter-btn[data-category="refund"]:hover,
+      .filter-btn[data-category="refund"].active {
+        background: var(--policy-refund);
+        border-color: var(--policy-refund);
+      }
+
+      .filter-btn[data-category="service"]:hover,
+      .filter-btn[data-category="service"].active {
+        background: var(--policy-service);
+        border-color: var(--policy-service);
+      }
+
+      /* Policies List */
+      .policies-container {
+        margin-bottom: 80px;
+      }
+
+      .policy-section {
+        margin-bottom: 60px;
+      }
+
+      .policy-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--accent);
+      }
+
+      .policy-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      .policy-header[data-category="terms"] .policy-icon {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--policy-terms);
+      }
+
+      .policy-header[data-category="privacy"] .policy-icon {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--policy-privacy);
+      }
+
+      .policy-header[data-category="refund"] .policy-icon {
+        background: rgba(239, 68, 68, 0.1);
+        color: var(--policy-refund);
+      }
+
+      .policy-header[data-category="service"] .policy-icon {
+        background: rgba(139, 92, 246, 0.1);
+        color: var(--policy-service);
+      }
+
+      .policy-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--primary);
+      }
+
+      .policy-description {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        line-height: 1.8;
+        margin-bottom: 32px;
+        max-width: 900px;
+      }
+
+      .policy-list {
+        list-style: none;
+        counter-reset: policy-counter;
+      }
+
+      .policy-item {
+        background: white;
+        border-radius: var(--radius);
+        padding: 32px;
+        margin-bottom: 24px;
+        border: 1px solid var(--accent);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .policy-item:before {
+        counter-increment: policy-counter;
+        content: counter(policy-counter);
+        position: absolute;
+        top: 24px;
+        left: 32px;
+        font-size: 1.5rem;
+        font-weight: 900;
+        opacity: 0.1;
+        font-size: 3rem;
+      }
+
+      .policy-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+      }
+
+      .policy-item h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+        padding-left: 40px;
+      }
+
+      .policy-item p {
+        color: var(--secondary);
+        line-height: 1.7;
+        padding-left: 40px;
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        background: white;
+        border-radius: var(--radius);
+        border: 2px dashed var(--accent);
+      }
+
+      .empty-state i {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 24px;
+      }
+
+      .empty-state h3 {
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 16px;
+      }
+
+      .empty-state p {
+        color: var(--secondary);
+        margin-bottom: 32px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .reset-btn {
+        padding: 14px 32px;
+        border-radius: 50px;
+        border: 2px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .reset-btn:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+        margin-top: 60px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+
+      /* Last Updated */
+      .last-updated {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background: #f8fafc;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+      }
+
+      .last-updated span {
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .policy-title {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero {
+          padding: 60px 0 40px;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .filter-section {
+          gap: 8px;
+        }
+
+        .filter-btn {
+          padding: 12px 20px;
+          font-size: 14px;
+        }
+
+        .policy-item {
+          padding: 24px;
+        }
+
+        .policy-item:before {
+          left: 24px;
+        }
+
+        .policy-item h3,
+        .policy-item p {
+          padding-left: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .policy-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 12px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <span>Albert Max</span>
+          </a>
+          <nav class="nav-links">
+            <a href="packages.html">Packages</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Our Policies</h1>
+        <p>
+          Transparent guidelines and procedures that govern our services,
+          ensuring clarity and trust in every interaction with Albert Max.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <div class="container">
+      <div class="filter-section">
+        <button class="filter-btn active" data-category="all">
+          <i class="fas fa-layer-group"></i> All Policies
+        </button>
+        <button class="filter-btn" data-category="terms">
+          <i class="fas fa-file-contract"></i> Terms & Conditions
+        </button>
+        <button class="filter-btn" data-category="privacy">
+          <i class="fas fa-shield-alt"></i> Privacy Policy
+        </button>
+        <button class="filter-btn" data-category="refund">
+          <i class="fas fa-undo-alt"></i> Refund Policy
+        </button>
+        <button class="filter-btn" data-category="service">
+          <i class="fas fa-cogs"></i> Service Policy
+        </button>
+      </div>
+    </div>
+
+    <!-- Policies Container -->
+    <div class="container">
+      <div class="policies-container" id="policiesContainer">
+        <!-- Policies will be loaded here by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Last Updated -->
+    <div class="container">
+      <div class="last-updated">
+        <p>Last updated: <span id="lastUpdatedDate">December 15, 2025</span></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="packages.html">Packages</a>
+          <a href="policies.html">Policies</a>
+          <a href="about.html">About Us</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. All rights reserved. Premium Digital Growth &
+          Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Policies Data - Add/Edit policies here
+      const policies = [
+        {
+          id: 1,
+          category: "terms",
+          title: "Terms of Service",
+          description:
+            "These terms govern your use of Albert Max services. By accessing or using our services, you agree to be bound by these terms.",
+          items: [
+            {
+              heading: "Acceptance of Terms",
+              description:
+                "By accessing and using our services, you accept and agree to be bound by the terms and provisions of this agreement.",
+            },
+            {
+              heading: "Service Description",
+              description:
+                "Albert Max provides digital design, development, and marketing services as described in individual service agreements.",
+            },
+            {
+              heading: "User Responsibilities",
+              description:
+                "Users are responsible for providing accurate information and maintaining the confidentiality of their account credentials.",
+            },
+            {
+              heading: "Intellectual Property",
+              description:
+                "All content and materials provided as part of our services are protected by copyright and intellectual property laws.",
+            },
+            {
+              heading: "Modification of Terms",
+              description:
+                "We reserve the right to modify these terms at any time. Continued use of services constitutes acceptance of modified terms.",
+            },
+          ],
+        },
+        {
+          id: 2,
+          category: "privacy",
+          title: "Privacy Policy",
+          description:
+            "How we collect, use, and protect your personal information when you use our services.",
+          items: [
+            {
+              heading: "Information Collection",
+              description:
+                "We collect information you provide directly, such as name, email, and project details when you contact us or use our services.",
+            },
+            {
+              heading: "Use of Information",
+              description:
+                "Your information is used to provide services, communicate with you, improve our offerings, and comply with legal obligations.",
+            },
+            {
+              heading: "Data Protection",
+              description:
+                "We implement security measures to protect your personal information from unauthorized access or disclosure.",
+            },
+            {
+              heading: "Third-Party Sharing",
+              description:
+                "We do not sell your personal information. We may share data with trusted partners only to provide our services.",
+            },
+            {
+              heading: "Your Rights",
+              description:
+                "You have the right to access, correct, or delete your personal information by contacting us directly.",
+            },
+          ],
+        },
+        {
+          id: 3,
+          category: "refund",
+          title: "Refund & Cancellation Policy",
+          description:
+            "Our policies regarding refunds, cancellations, and satisfaction guarantees for our services.",
+          items: [
+            {
+              heading: "Service Cancellation",
+              description:
+                "Clients may cancel services within 24 hours of purchase for a full refund, provided no work has commenced.",
+            },
+            {
+              heading: "Refund Eligibility",
+              description:
+                "Refunds are issued based on the completion status of the project and adherence to project milestones.",
+            },
+            {
+              heading: "Digital Products",
+              description:
+                "Due to the nature of digital services, refunds for completed work are issued at our discretion.",
+            },
+            {
+              heading: "Dispute Resolution",
+              description:
+                "We aim to resolve all disputes amicably. Unresolved issues will be handled according to our service agreement.",
+            },
+            {
+              heading: "Payment Disputes",
+              description:
+                "Clients must contact us directly regarding payment disputes before initiating chargebacks with financial institutions.",
+            },
+          ],
+        },
+        {
+          id: 4,
+          category: "service",
+          title: "Service Delivery Policy",
+          description:
+            "Guidelines on how we deliver services, timelines, revisions, and client responsibilities.",
+          items: [
+            {
+              heading: "Project Timeline",
+              description:
+                "Timelines are established during project kickoff and may be adjusted based on scope changes or client feedback delays.",
+            },
+            {
+              heading: "Revision Policy",
+              description:
+                "Each project includes a specified number of revisions. Additional revisions may incur extra charges.",
+            },
+            {
+              heading: "Client Cooperation",
+              description:
+                "Timely client feedback and provision of necessary materials are essential for meeting project deadlines.",
+            },
+            {
+              heading: "Quality Assurance",
+              description:
+                "All deliverables undergo quality checks before submission. We stand behind the quality of our work.",
+            },
+            {
+              heading: "Communication Protocol",
+              description:
+                "All project communication should occur through designated channels to ensure proper documentation and tracking.",
+            },
+          ],
+        },
+        {
+          id: 5,
+          category: "terms",
+          title: "Client Agreement",
+          description:
+            "Additional terms specific to client engagements and project work.",
+          items: [
+            {
+              heading: "Project Scope",
+              description:
+                "The scope of work is defined in individual project agreements. Additional work may require separate agreements.",
+            },
+            {
+              heading: "Payment Terms",
+              description:
+                "Payment schedules are outlined in project agreements. Late payments may result in project delays.",
+            },
+            {
+              heading: "Confidentiality",
+              description:
+                "Both parties agree to maintain the confidentiality of proprietary information shared during the engagement.",
+            },
+            {
+              heading: "Termination Rights",
+              description:
+                "Either party may terminate the agreement with written notice, subject to terms outlined in the service agreement.",
+            },
+          ],
+        },
+      ];
+
+      // Set last updated date
+      document.getElementById("lastUpdatedDate").textContent =
+        new Date().toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+      // Function to render policies
+      function renderPolicies(filterCategory = "all") {
+        const container = document.getElementById("policiesContainer");
+        container.innerHTML = "";
+
+        // Filter policies if needed
+        const filteredPolicies =
+          filterCategory === "all"
+            ? policies
+            : policies.filter((policy) => policy.category === filterCategory);
+
+        // Show empty state if no policies
+        if (filteredPolicies.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>No Policies Found</h3>
+                        <p>There are no policies available for the selected category.</p>
+                        <button class="reset-btn" onclick="resetFilters()">Show All Policies</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Group policies by category for better organization
+        const policiesByCategory = {};
+        filteredPolicies.forEach((policy) => {
+          if (!policiesByCategory[policy.category]) {
+            policiesByCategory[policy.category] = [];
+          }
+          policiesByCategory[policy.category].push(policy);
+        });
+
+        // Render each category section
+        Object.keys(policiesByCategory).forEach((category) => {
+          const categoryPolicies = policiesByCategory[category];
+
+          // Category header
+          let categoryTitle = "";
+          let categoryIcon = "";
+
+          switch (category) {
+            case "terms":
+              categoryTitle = "Terms & Conditions";
+              categoryIcon = "file-contract";
+              break;
+            case "privacy":
+              categoryTitle = "Privacy Policy";
+              categoryIcon = "shield-alt";
+              break;
+            case "refund":
+              categoryTitle = "Refund Policy";
+              categoryIcon = "undo-alt";
+              break;
+            case "service":
+              categoryTitle = "Service Policy";
+              categoryIcon = "cogs";
+              break;
+          }
+
+          // Create category section
+          categoryPolicies.forEach((policy) => {
+            const policySection = document.createElement("div");
+            policySection.className = "policy-section";
+
+            policySection.innerHTML = `
+                        <div class="policy-header" data-category="${
+                          policy.category
+                        }">
+                            <div class="policy-icon">
+                                <i class="fas fa-${categoryIcon}"></i>
+                            </div>
+                            <div>
+                                <h2 class="policy-title">${policy.title}</h2>
+                                <p class="policy-description">${
+                                  policy.description
+                                }</p>
+                            </div>
+                        </div>
+                        
+                        <ol class="policy-list">
+                            ${policy.items
+                              .map(
+                                (item) => `
+                                <li class="policy-item">
+                                    <h3>${item.heading}</h3>
+                                    <p>${item.description}</p>
+                                </li>
+                            `
+                              )
+                              .join("")}
+                        </ol>
+                    `;
+
+            container.appendChild(policySection);
+          });
+        });
+      }
+
+      // Function to handle filter button clicks
+      function setupFilterButtons() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            button.classList.add("active");
+
+            // Get filter category from data attribute
+            const filterCategory = button.getAttribute("data-category");
+
+            // Render policies with filter
+            renderPolicies(filterCategory);
+
+            // Scroll to policies section
+            document.getElementById("policiesContainer").scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          });
+        });
+      }
+
+      // Function to reset filters
+      function resetFilters() {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        filterButtons.forEach((btn) => {
+          if (btn.getAttribute("data-category") === "all") {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        renderPolicies("all");
+      }
+
+      // Function to add a new policy (for developer use)
+      function addNewPolicy(category, title, description, items) {
+        const newPolicy = {
+          id: policies.length + 1,
+          category: category,
+          title: title,
+          description: description,
+          items: items,
+        };
+
+        policies.push(newPolicy);
+
+        // Re-render policies with current filter
+        const activeFilter = document
+          .querySelector(".filter-btn.active")
+          .getAttribute("data-category");
+        renderPolicies(activeFilter);
+
+        console.log("New policy added:", newPolicy);
+      }
+
+      // Example of adding a new policy programmatically:
+      /*
+        addNewPolicy(
+            'terms', // category
+            'Intellectual Property Policy', // title
+            'Guidelines regarding ownership and usage rights of intellectual property created during projects.', // description
+            [
+                {
+                    heading: 'Ownership Transfer',
+                    description: 'Upon full payment, clients receive full ownership of deliverables as specified in the project agreement.'
+                },
+                {
+                    heading: 'Portfolio Rights',
+                    description: 'Albert Max reserves the right to display completed work in portfolio and marketing materials.'
+                },
+                {
+                    heading: 'Third-Party Assets',
+                    description: 'Clients are responsible for securing licenses for any third-party assets used in their projects.'
+                }
+            ]
+        );
+        */
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render all policies initially
+        renderPolicies();
+
+        // Setup filter buttons
+        setupFilterButtons();
+      });
+
+      // Search functionality (optional enhancement)
+      function searchPolicies(query) {
+        if (!query.trim()) {
+          resetFilters();
+          return;
+        }
+
+        const searchResults = policies.filter((policy) => {
+          const searchText = (
+            policy.title +
+            " " +
+            policy.description +
+            " " +
+            policy.items
+              .map((item) => item.heading + " " + item.description)
+              .join(" ")
+          ).toLowerCase();
+
+          return searchText.includes(query.toLowerCase());
+        });
+
+        // Create search results view
+        const container = document.getElementById("policiesContainer");
+        container.innerHTML = "";
+
+        if (searchResults.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>No Results Found</h3>
+                        <p>No policies match your search query: "${query}"</p>
+                        <button class="reset-btn" onclick="resetFilters()">Show All Policies</button>
+                    </div>
+                `;
+          return;
+        }
+
+        // Render search results
+        searchResults.forEach((policy) => {
+          const policySection = document.createElement("div");
+          policySection.className = "policy-section";
+
+          let categoryIcon = "";
+          switch (policy.category) {
+            case "terms":
+              categoryIcon = "file-contract";
+              break;
+            case "privacy":
+              categoryIcon = "shield-alt";
+              break;
+            case "refund":
+              categoryIcon = "undo-alt";
+              break;
+            case "service":
+              categoryIcon = "cogs";
+              break;
+          }
+
+          policySection.innerHTML = `
+                    <div class="policy-header" data-category="${
+                      policy.category
+                    }">
+                        <div class="policy-icon">
+                            <i class="fas fa-${categoryIcon}"></i>
+                        </div>
+                        <div>
+                            <h2 class="policy-title">${policy.title}</h2>
+                            <p class="policy-description">${
+                              policy.description
+                            }</p>
+                        </div>
+                    </div>
+                    
+                    <ol class="policy-list">
+                        ${policy.items
+                          .map(
+                            (item) => `
+                            <li class="policy-item">
+                                <h3>${item.heading}</h3>
+                                <p>${item.description}</p>
+                            </li>
+                        `
+                          )
+                          .join("")}
+                    </ol>
+                `;
+
+          container.appendChild(policySection);
+        });
+      }
+    </script>
+  </body>
+</html>
