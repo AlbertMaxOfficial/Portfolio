@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Our Expertise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 16px;
+        --max-width: 1200px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --gradient-light: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        --expertise-web: #4a6fff;
+        --expertise-design: #ff6b9d;
+        --expertise-marketing: #00d09c;
+        --expertise-branding: #ffb74d;
+        --expertise-seo: #8b5cf6;
+        --expertise-dev: #06b6d4;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .logo-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 100px 0 80px;
+        text-align: center;
+        background: var(--gradient-light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 24px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        font-size: 15px;
+        color: var(--secondary);
+        font-weight: 500;
+      }
+
+      /* Expertise Grid */
+      .expertise-section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 80px;
+      }
+
+      .section-title h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        line-height: 1.8;
+      }
+
+      .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .expertise-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 48px 40px;
+        border: 1px solid var(--accent);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .expertise-card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        transition: height 0.4s ease;
+      }
+
+      .expertise-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+      }
+
+      .expertise-card:hover:before {
+        height: 100%;
+      }
+
+      .expertise-card.web:hover:before {
+        background: var(--expertise-web);
+      }
+
+      .expertise-card.design:hover:before {
+        background: var(--expertise-design);
+      }
+
+      .expertise-card.marketing:hover:before {
+        background: var(--expertise-marketing);
+      }
+
+      .expertise-card.branding:hover:before {
+        background: var(--expertise-branding);
+      }
+
+      .expertise-card.seo:hover:before {
+        background: var(--expertise-seo);
+      }
+
+      .expertise-card.dev:hover:before {
+        background: var(--expertise-dev);
+      }
+
+      .expertise-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        font-size: 28px;
+      }
+
+      .expertise-card.web .expertise-icon {
+        background: rgba(74, 111, 255, 0.1);
+        color: var(--expertise-web);
+      }
+
+      .expertise-card.design .expertise-icon {
+        background: rgba(255, 107, 157, 0.1);
+        color: var(--expertise-design);
+      }
+
+      .expertise-card.marketing .expertise-icon {
+        background: rgba(0, 208, 156, 0.1);
+        color: var(--expertise-marketing);
+      }
+
+      .expertise-card.branding .expertise-icon {
+        background: rgba(255, 183, 77, 0.1);
+        color: var(--expertise-branding);
+      }
+
+      .expertise-card.seo .expertise-icon {
+        background: rgba(139, 92, 246, 0.1);
+        color: var(--expertise-seo);
+      }
+
+      .expertise-card.dev .expertise-icon {
+        background: rgba(6, 182, 212, 0.1);
+        color: var(--expertise-dev);
+      }
+
+      .expertise-card h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .expertise-description {
+        color: var(--secondary);
+        margin-bottom: 28px;
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      .expertise-features {
+        list-style: none;
+        margin-top: 24px;
+      }
+
+      .expertise-features li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--secondary);
+        font-size: 15px;
+      }
+
+      .expertise-features li i {
+        color: var(--expertise-marketing);
+        font-size: 14px;
+      }
+
+      /* Process Section */
+      .process-section {
+        padding: 100px 0;
+        background: var(--gradient-light);
+        position: relative;
+      }
+
+      .process-section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .process-card {
+        text-align: center;
+        padding: 40px 30px;
+        background: white;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+        transition: all 0.3s ease;
+      }
+
+      .process-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .process-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--gradient);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 900;
+        margin: 0 auto 24px;
+      }
+
+      .process-card h4 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+      }
+
+      .process-card p {
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .cta-content p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        margin-bottom: 40px;
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px 42px;
+        border-radius: 50px;
+        background: var(--gradient);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn:hover:before {
+        left: 100%;
+      }
+
+      .btn i {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .btn:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Footer */
+      footer {
+        padding: 80px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1100px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title h2 {
+          font-size: 2.4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero {
+          padding: 80px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .stats-bar {
+          gap: 40px;
+        }
+
+        .expertise-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .expertise-card {
+          padding: 40px 32px;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .cta-content h2 {
+          font-size: 2.2rem;
+        }
+
+        .cta-content p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .stats-bar {
+          gap: 30px;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .expertise-card {
+          padding: 32px 24px;
+        }
+
+        .expertise-card h3 {
+          font-size: 1.6rem;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            Albert Max<span class="logo-dot"></span>
+          </a>
+          <nav class="nav-links">
+            <a href="#expertise">Expertise</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Deep Expertise,<br />Exceptional Results</h1>
+        <p>
+          We combine specialized skills with strategic thinking to deliver
+          digital solutions that drive growth and innovation for
+          forward-thinking businesses.
+        </p>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="95">0%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="8">0+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="3">0x</div>
+            <div class="stat-label">Average ROI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Core Expertise</h2>
+          <p>
+            We specialize in transforming complex challenges into elegant
+            solutions. Here's what we excel at.
+          </p>
+        </div>
+
+        <div class="expertise-grid" id="expertiseGrid">
+          <!-- Expertise cards will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Working Process</h2>
+          <p>
+            A systematic approach that ensures clarity, quality, and results at
+            every stage of your project.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <h4>Discovery & Strategy</h4>
+            <p>
+              We begin by understanding your business goals, audience, and
+              challenges to create a tailored strategy.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <h4>Design & Prototyping</h4>
+            <p>
+              Creating intuitive designs and interactive prototypes that align
+              with your vision and user needs.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <h4>Development & Implementation</h4>
+            <p>
+              Building robust, scalable solutions using cutting-edge
+              technologies and best practices.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">04</div>
+            <h4>Launch & Optimization</h4>
+            <p>
+              Deploying your solution and continuously optimizing for
+              performance, engagement, and growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Leverage Our Expertise?</h2>
+          <p>
+            Partner with us to transform your digital presence. Let's discuss
+            how our specialized skills can drive your business forward.
+          </p>
+          <button class="btn" onclick="contactUs()">
+            Start a Project <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="packages.html">Packages</a>
+          <a href="about.html">About</a>
+          <a href="policies.html">Policies</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. All rights reserved. Premium Digital Growth &
+          Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Expertise Data - Add/Edit expertise areas here
+      const expertise = [
+        {
+          id: 1,
+          category: "web",
+          title: "Web Development",
+          description:
+            "Building high-performance, scalable websites and web applications using modern technologies and best practices.",
+          icon: "fas fa-code",
+          features: [
+            "Custom Frontend Development",
+            "Backend & API Development",
+            "E-commerce Solutions",
+            "Progressive Web Apps",
+            "Performance Optimization",
+            "Security Implementation",
+          ],
+        },
+        {
+          id: 2,
+          category: "design",
+          title: "UI/UX Design",
+          description:
+            "Creating intuitive, beautiful user interfaces and experiences that engage users and drive conversions.",
+          icon: "fas fa-pencil-ruler",
+          features: [
+            "User Research & Analysis",
+            "Wireframing & Prototyping",
+            "Visual Design Systems",
+            "Interaction Design",
+            "Design Systems",
+            "Usability Testing",
+          ],
+        },
+        {
+          id: 3,
+          category: "marketing",
+          title: "Digital Marketing",
+          description:
+            "Strategic marketing campaigns that increase visibility, generate leads, and drive measurable business growth.",
+          icon: "fas fa-chart-line",
+          features: [
+            "Social Media Marketing",
+            "Email Campaigns",
+            "Content Strategy",
+            "Conversion Optimization",
+            "Analytics & Reporting",
+            "Marketing Automation",
+          ],
+        },
+        {
+          id: 4,
+          category: "branding",
+          title: "Brand Strategy",
+          description:
+            "Developing powerful brand identities that communicate your unique value and resonate with your audience.",
+          icon: "fas fa-palette",
+          features: [
+            "Brand Identity Design",
+            "Logo & Visual Systems",
+            "Brand Guidelines",
+            "Brand Positioning",
+            "Competitor Analysis",
+            "Brand Voice & Messaging",
+          ],
+        },
+        {
+          id: 5,
+          category: "seo",
+          title: "SEO & Analytics",
+          description:
+            "Improving search visibility and leveraging data insights to drive organic growth and optimize performance.",
+          icon: "fas fa-search",
+          features: [
+            "Technical SEO Audits",
+            "Keyword Research",
+            "On-Page Optimization",
+            "Link Building Strategy",
+            "Data Analytics",
+            "Performance Tracking",
+          ],
+        },
+        {
+          id: 6,
+          category: "dev",
+          title: "Mobile Development",
+          description:
+            "Creating native and cross-platform mobile applications that provide seamless user experiences.",
+          icon: "fas fa-mobile-alt",
+          features: [
+            "iOS & Android Apps",
+            "React Native Development",
+            "App Store Optimization",
+            "Push Notifications",
+            "Mobile Analytics",
+            "App Maintenance",
+          ],
+        },
+        {
+          id: 7,
+          category: "web",
+          title: "Web Performance",
+          description:
+            "Optimizing website speed, responsiveness, and overall performance for better user engagement.",
+          icon: "fas fa-tachometer-alt",
+          features: [
+            "Speed Optimization",
+            "Core Web Vitals",
+            "Caching Strategies",
+            "Image Optimization",
+            "CDN Implementation",
+            "Performance Monitoring",
+          ],
+        },
+        {
+          id: 8,
+          category: "design",
+          title: "Motion Design",
+          description:
+            "Adding engaging animations and micro-interactions that enhance user experience and brand personality.",
+          icon: "fas fa-film",
+          features: [
+            "UI Animations",
+            "Micro-interactions",
+            "Motion Graphics",
+            "Video Production",
+            "Loading Animations",
+            "Interactive Elements",
+          ],
+        },
+      ];
+
+      // Function to render expertise cards
+      function renderExpertise() {
+        const container = document.getElementById("expertiseGrid");
+        container.innerHTML = "";
+
+        // Sort expertise by category for better organization
+        const sortedExpertise = [...expertise].sort((a, b) =>
+          a.category.localeCompare(b.category)
+        );
+
+        // Render each expertise card
+        sortedExpertise.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = `expertise-card ${item.category}`;
+
+          card.innerHTML = `
+                    <div class="expertise-icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    
+                    <h3>${item.title}</h3>
+                    
+                    <p class="expertise-description">${item.description}</p>
+                    
+                    <ul class="expertise-features">
+                        ${item.features
+                          .map(
+                            (feature) => `
+                            <li><i class="fas fa-check"></i> ${feature}</li>
+                        `
+                          )
+                          .join("")}
+                    </ul>
+                `;
+
+          container.appendChild(card);
+        });
+      }
+
+      // Function to animate statistics counter
+      function animateStats() {
+        const statNumbers = document.querySelectorAll(".stat-number");
+
+        statNumbers.forEach((stat) => {
+          const target = parseInt(stat.getAttribute("data-count"));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            if (stat.textContent.includes("%")) {
+              stat.textContent = Math.floor(current) + "%";
+            } else if (stat.textContent.includes("x")) {
+              stat.textContent = current.toFixed(1) + "x";
+            } else {
+              stat.textContent = Math.floor(current) + "+";
+            }
+          }, 16);
+        });
+      }
+
+      // Function to add new expertise (for developer use)
+      function addNewExpertise(category, title, description, icon, features) {
+        const newExpertise = {
+          id: expertise.length + 1,
+          category: category,
+          title: title,
+          description: description,
+          icon: icon,
+          features: features,
+        };
+
+        expertise.push(newExpertise);
+        renderExpertise();
+
+        console.log("New expertise added:", newExpertise);
+      }
+
+      // Example of adding new expertise programmatically:
+      /*
+        addNewExpertise(
+            'seo', // category: 'web', 'design', 'marketing', 'branding', 'seo', 'dev'
+            'Content Strategy', // title
+            'Developing engaging content that drives traffic and builds authority.', // description
+            'fas fa-edit', // icon from FontAwesome
+            [ // features array
+                'Content Planning',
+                'SEO Writing',
+                'Content Optimization',
+                'Editorial Calendar',
+                'Content Distribution',
+                'Performance Analysis'
+            ]
+        );
+        */
+
+      // Contact button function
+      function contactUs() {
+        alert(
+          "Let's discuss your project! We'll contact you within 24 hours to explore how our expertise can benefit your business."
+        );
+
+        // In a real application, you would:
+        // 1. Open a contact form modal
+        // 2. Redirect to a contact page
+        // 3. Trigger a phone call or email
+      }
+
+      // Initialize page with animations
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render expertise cards
+        renderExpertise();
+
+        // Animate stats when they come into view
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(document.querySelector(".stats-bar"));
+
+        // Add scroll animations to expertise cards
+        const expertiseCards = document.querySelectorAll(".expertise-card");
+        expertiseCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+
+          setTimeout(() => {
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+      });
+
+      // Add hover effect enhancement
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".expertise-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            const icon = this.querySelector(".expertise-icon i");
+            icon.style.transform = "scale(1.1)";
+            icon.style.transition = "transform 0.3s ease";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            const icon = this.querySelector(".expertise-icon i");
+            icon.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albert Max | Our Expertise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      }
+
+      :root {
+        --primary: #000000;
+        --secondary: #555555;
+        --accent: #eaeaea;
+        --bg: #ffffff;
+        --radius: 16px;
+        --max-width: 1200px;
+        --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+        --gradient-light: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        --expertise-web: #4a6fff;
+        --expertise-design: #ff6b9d;
+        --expertise-marketing: #00d09c;
+        --expertise-branding: #ffb74d;
+        --expertise-seo: #8b5cf6;
+        --expertise-dev: #06b6d4;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--primary);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--accent);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .logo-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 8px 0;
+      }
+
+      .nav-links a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 100px 0 80px;
+        text-align: center;
+        background: var(--gradient-light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin-bottom: 24px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        font-size: 15px;
+        color: var(--secondary);
+        font-weight: 500;
+      }
+
+      /* Expertise Grid */
+      .expertise-section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 80px;
+      }
+
+      .section-title h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        line-height: 1.8;
+      }
+
+      .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .expertise-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 48px 40px;
+        border: 1px solid var(--accent);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .expertise-card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        transition: height 0.4s ease;
+      }
+
+      .expertise-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+      }
+
+      .expertise-card:hover:before {
+        height: 100%;
+      }
+
+      .expertise-card.web:hover:before {
+        background: var(--expertise-web);
+      }
+
+      .expertise-card.design:hover:before {
+        background: var(--expertise-design);
+      }
+
+      .expertise-card.marketing:hover:before {
+        background: var(--expertise-marketing);
+      }
+
+      .expertise-card.branding:hover:before {
+        background: var(--expertise-branding);
+      }
+
+      .expertise-card.seo:hover:before {
+        background: var(--expertise-seo);
+      }
+
+      .expertise-card.dev:hover:before {
+        background: var(--expertise-dev);
+      }
+
+      .expertise-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        font-size: 28px;
+      }
+
+      .expertise-card.web .expertise-icon {
+        background: rgba(74, 111, 255, 0.1);
+        color: var(--expertise-web);
+      }
+
+      .expertise-card.design .expertise-icon {
+        background: rgba(255, 107, 157, 0.1);
+        color: var(--expertise-design);
+      }
+
+      .expertise-card.marketing .expertise-icon {
+        background: rgba(0, 208, 156, 0.1);
+        color: var(--expertise-marketing);
+      }
+
+      .expertise-card.branding .expertise-icon {
+        background: rgba(255, 183, 77, 0.1);
+        color: var(--expertise-branding);
+      }
+
+      .expertise-card.seo .expertise-icon {
+        background: rgba(139, 92, 246, 0.1);
+        color: var(--expertise-seo);
+      }
+
+      .expertise-card.dev .expertise-icon {
+        background: rgba(6, 182, 212, 0.1);
+        color: var(--expertise-dev);
+      }
+
+      .expertise-card h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .expertise-description {
+        color: var(--secondary);
+        margin-bottom: 28px;
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      .expertise-features {
+        list-style: none;
+        margin-top: 24px;
+      }
+
+      .expertise-features li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        color: var(--secondary);
+        font-size: 15px;
+      }
+
+      .expertise-features li i {
+        color: var(--expertise-marketing);
+        font-size: 14px;
+      }
+
+      /* Process Section */
+      .process-section {
+        padding: 100px 0;
+        background: var(--gradient-light);
+        position: relative;
+      }
+
+      .process-section:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .process-card {
+        text-align: center;
+        padding: 40px 30px;
+        background: white;
+        border-radius: var(--radius);
+        border: 1px solid var(--accent);
+        transition: all 0.3s ease;
+      }
+
+      .process-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .process-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--gradient);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 900;
+        margin: 0 auto 24px;
+      }
+
+      .process-card h4 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--primary);
+      }
+
+      .process-card p {
+        color: var(--secondary);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .cta-content p {
+        font-size: 1.2rem;
+        color: var(--secondary);
+        margin-bottom: 40px;
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px 42px;
+        border-radius: 50px;
+        background: var(--gradient);
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn:hover:before {
+        left: 100%;
+      }
+
+      .btn i {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .btn:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Footer */
+      footer {
+        padding: 80px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--accent);
+        background: #fafafa;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 15px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--secondary);
+        margin-top: 40px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1100px) {
+        .hero h1 {
+          font-size: 2.8rem;
+        }
+
+        .section-title h2 {
+          font-size: 2.4rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero {
+          padding: 80px 0 60px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .stats-bar {
+          gap: 40px;
+        }
+
+        .expertise-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .expertise-card {
+          padding: 40px 32px;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .cta-content h2 {
+          font-size: 2.2rem;
+        }
+
+        .cta-content p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .stats-bar {
+          gap: 30px;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+
+        .expertise-card {
+          padding: 32px 24px;
+        }
+
+        .expertise-card h3 {
+          font-size: 1.6rem;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            Albert Max<span class="logo-dot"></span>
+          </a>
+          <nav class="nav-links">
+            <a href="#expertise">Expertise</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Deep Expertise,<br />Exceptional Results</h1>
+        <p>
+          We combine specialized skills with strategic thinking to deliver
+          digital solutions that drive growth and innovation for
+          forward-thinking businesses.
+        </p>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-number" data-count="50">0+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="95">0%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="8">0+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="3">0x</div>
+            <div class="stat-label">Average ROI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Core Expertise</h2>
+          <p>
+            We specialize in transforming complex challenges into elegant
+            solutions. Here's what we excel at.
+          </p>
+        </div>
+
+        <div class="expertise-grid" id="expertiseGrid">
+          <!-- Expertise cards will be loaded here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Working Process</h2>
+          <p>
+            A systematic approach that ensures clarity, quality, and results at
+            every stage of your project.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <h4>Discovery & Strategy</h4>
+            <p>
+              We begin by understanding your business goals, audience, and
+              challenges to create a tailored strategy.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <h4>Design & Prototyping</h4>
+            <p>
+              Creating intuitive designs and interactive prototypes that align
+              with your vision and user needs.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <h4>Development & Implementation</h4>
+            <p>
+              Building robust, scalable solutions using cutting-edge
+              technologies and best practices.
+            </p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">04</div>
+            <h4>Launch & Optimization</h4>
+            <p>
+              Deploying your solution and continuously optimizing for
+              performance, engagement, and growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Leverage Our Expertise?</h2>
+          <p>
+            Partner with us to transform your digital presence. Let's discuss
+            how our specialized skills can drive your business forward.
+          </p>
+          <button class="btn" onclick="contactUs()">
+            Start a Project <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="packages.html">Packages</a>
+          <a href="about.html">About</a>
+          <a href="policies.html">Policies</a>
+        </div>
+        <div class="copyright">
+          © 2025 Albert Max. All rights reserved. Premium Digital Growth &
+          Design Studio.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Expertise Data - Add/Edit expertise areas here
+      const expertise = [
+        {
+          id: 1,
+          category: "web",
+          title: "Web Development",
+          description:
+            "Building high-performance, scalable websites and web applications using modern technologies and best practices.",
+          icon: "fas fa-code",
+          features: [
+            "Custom Frontend Development",
+            "Backend & API Development",
+            "E-commerce Solutions",
+            "Progressive Web Apps",
+            "Performance Optimization",
+            "Security Implementation",
+          ],
+        },
+        {
+          id: 2,
+          category: "design",
+          title: "UI/UX Design",
+          description:
+            "Creating intuitive, beautiful user interfaces and experiences that engage users and drive conversions.",
+          icon: "fas fa-pencil-ruler",
+          features: [
+            "User Research & Analysis",
+            "Wireframing & Prototyping",
+            "Visual Design Systems",
+            "Interaction Design",
+            "Design Systems",
+            "Usability Testing",
+          ],
+        },
+        {
+          id: 3,
+          category: "marketing",
+          title: "Digital Marketing",
+          description:
+            "Strategic marketing campaigns that increase visibility, generate leads, and drive measurable business growth.",
+          icon: "fas fa-chart-line",
+          features: [
+            "Social Media Marketing",
+            "Email Campaigns",
+            "Content Strategy",
+            "Conversion Optimization",
+            "Analytics & Reporting",
+            "Marketing Automation",
+          ],
+        },
+        {
+          id: 4,
+          category: "branding",
+          title: "Brand Strategy",
+          description:
+            "Developing powerful brand identities that communicate your unique value and resonate with your audience.",
+          icon: "fas fa-palette",
+          features: [
+            "Brand Identity Design",
+            "Logo & Visual Systems",
+            "Brand Guidelines",
+            "Brand Positioning",
+            "Competitor Analysis",
+            "Brand Voice & Messaging",
+          ],
+        },
+        {
+          id: 5,
+          category: "seo",
+          title: "SEO & Analytics",
+          description:
+            "Improving search visibility and leveraging data insights to drive organic growth and optimize performance.",
+          icon: "fas fa-search",
+          features: [
+            "Technical SEO Audits",
+            "Keyword Research",
+            "On-Page Optimization",
+            "Link Building Strategy",
+            "Data Analytics",
+            "Performance Tracking",
+          ],
+        },
+        {
+          id: 6,
+          category: "dev",
+          title: "Mobile Development",
+          description:
+            "Creating native and cross-platform mobile applications that provide seamless user experiences.",
+          icon: "fas fa-mobile-alt",
+          features: [
+            "iOS & Android Apps",
+            "React Native Development",
+            "App Store Optimization",
+            "Push Notifications",
+            "Mobile Analytics",
+            "App Maintenance",
+          ],
+        },
+        {
+          id: 7,
+          category: "web",
+          title: "Web Performance",
+          description:
+            "Optimizing website speed, responsiveness, and overall performance for better user engagement.",
+          icon: "fas fa-tachometer-alt",
+          features: [
+            "Speed Optimization",
+            "Core Web Vitals",
+            "Caching Strategies",
+            "Image Optimization",
+            "CDN Implementation",
+            "Performance Monitoring",
+          ],
+        },
+        {
+          id: 8,
+          category: "design",
+          title: "Motion Design",
+          description:
+            "Adding engaging animations and micro-interactions that enhance user experience and brand personality.",
+          icon: "fas fa-film",
+          features: [
+            "UI Animations",
+            "Micro-interactions",
+            "Motion Graphics",
+            "Video Production",
+            "Loading Animations",
+            "Interactive Elements",
+          ],
+        },
+      ];
+
+      // Function to render expertise cards
+      function renderExpertise() {
+        const container = document.getElementById("expertiseGrid");
+        container.innerHTML = "";
+
+        // Sort expertise by category for better organization
+        const sortedExpertise = [...expertise].sort((a, b) =>
+          a.category.localeCompare(b.category)
+        );
+
+        // Render each expertise card
+        sortedExpertise.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = `expertise-card ${item.category}`;
+
+          card.innerHTML = `
+                    <div class="expertise-icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    
+                    <h3>${item.title}</h3>
+                    
+                    <p class="expertise-description">${item.description}</p>
+                    
+                    <ul class="expertise-features">
+                        ${item.features
+                          .map(
+                            (feature) => `
+                            <li><i class="fas fa-check"></i> ${feature}</li>
+                        `
+                          )
+                          .join("")}
+                    </ul>
+                `;
+
+          container.appendChild(card);
+        });
+      }
+
+      // Function to animate statistics counter
+      function animateStats() {
+        const statNumbers = document.querySelectorAll(".stat-number");
+
+        statNumbers.forEach((stat) => {
+          const target = parseInt(stat.getAttribute("data-count"));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            if (stat.textContent.includes("%")) {
+              stat.textContent = Math.floor(current) + "%";
+            } else if (stat.textContent.includes("x")) {
+              stat.textContent = current.toFixed(1) + "x";
+            } else {
+              stat.textContent = Math.floor(current) + "+";
+            }
+          }, 16);
+        });
+      }
+
+      // Function to add new expertise (for developer use)
+      function addNewExpertise(category, title, description, icon, features) {
+        const newExpertise = {
+          id: expertise.length + 1,
+          category: category,
+          title: title,
+          description: description,
+          icon: icon,
+          features: features,
+        };
+
+        expertise.push(newExpertise);
+        renderExpertise();
+
+        console.log("New expertise added:", newExpertise);
+      }
+
+      // Example of adding new expertise programmatically:
+      /*
+        addNewExpertise(
+            'seo', // category: 'web', 'design', 'marketing', 'branding', 'seo', 'dev'
+            'Content Strategy', // title
+            'Developing engaging content that drives traffic and builds authority.', // description
+            'fas fa-edit', // icon from FontAwesome
+            [ // features array
+                'Content Planning',
+                'SEO Writing',
+                'Content Optimization',
+                'Editorial Calendar',
+                'Content Distribution',
+                'Performance Analysis'
+            ]
+        );
+        */
+
+      // Contact button function
+      function contactUs() {
+        alert(
+          "Let's discuss your project! We'll contact you within 24 hours to explore how our expertise can benefit your business."
+        );
+
+        // In a real application, you would:
+        // 1. Open a contact form modal
+        // 2. Redirect to a contact page
+        // 3. Trigger a phone call or email
+      }
+
+      // Initialize page with animations
+      document.addEventListener("DOMContentLoaded", () => {
+        // Render expertise cards
+        renderExpertise();
+
+        // Animate stats when they come into view
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(document.querySelector(".stats-bar"));
+
+        // Add scroll animations to expertise cards
+        const expertiseCards = document.querySelectorAll(".expertise-card");
+        expertiseCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+
+          setTimeout(() => {
+            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 100);
+        });
+      });
+
+      // Add hover effect enhancement
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".expertise-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("mouseenter", function () {
+            const icon = this.querySelector(".expertise-icon i");
+            icon.style.transform = "scale(1.1)";
+            icon.style.transition = "transform 0.3s ease";
+          });
+
+          card.addEventListener("mouseleave", function () {
+            const icon = this.querySelector(".expertise-icon i");
+            icon.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
